@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaurav Sinha — Dynamics 365 &amp; Power Platform Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:       #F6F7FA;
+  --ink2:      #FFFFFF;
+  --ink3:      #EEF1F6;
+  --surface:   #FFFFFF;
+  --surface2:  #F3F5F9;
+  --blue:      #2A5FD9;
+  --blue2:     #1E4FC0;
+  --blue3:     #14336E;
+  --blueglow:  rgba(42,95,217,0.08);
+  --bluebdr:   rgba(42,95,217,0.22);
+  --bluebdr2:  rgba(42,95,217,0.42);
+  --slate:     #64748B;
+  --slate2:    #3C4758;
+  --slate3:    #1E293B;
+  --dim:       rgba(15,23,42,0.035);
+  --bdr:       rgba(15,23,42,0.10);
+  --cyan:      #0E7C86;
+  --cyan-soft: rgba(14,124,134,0.08);
+  --cyan-bdr:  rgba(14,124,134,0.25);
+  --cream:     #111827;
+  --headline:  #0E1626;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar { width:3px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--bluebdr2); }
+
+body::after {
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='1' height='1' fill='rgba(42,95,217,0.035)'/%3E%3C/svg%3E");
+}
+
+/* ─── NAV ─── */
+nav {
+  position:fixed; top:0; width:100%; z-index:999;
+  height:68px; padding:0 7%;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,0.90);
+  backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--bdr);
+}
+.n-logo { display:flex; align-items:center; gap:13px; text-decoration:none; }
+.n-seal {
+  width:38px; height:38px; border-radius:50%;
+  border:1.5px solid var(--bluebdr2);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Playfair Display',serif; font-size:0.9rem; font-weight:700;
+  color:var(--blue); letter-spacing:0.04em; flex-shrink:0;
+  background:radial-gradient(circle at 40% 35%, rgba(42,95,217,0.12), transparent 70%);
+}
+.n-text { line-height:1.25; }
+.n-name { font-size:0.82rem; font-weight:600; color:var(--cream); letter-spacing:0.04em; }
+.n-sub  { font-size:0.65rem; font-weight:400; color:var(--slate); letter-spacing:0.1em; text-transform:uppercase; }
+nav ul  { display:flex; gap:32px; list-style:none; align-items:center; }
+nav a   { color:var(--slate); text-decoration:none; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; transition:color .2s; }
+nav a:hover { color:var(--blue2); }
+.n-hire {
+  padding:8px 22px; border-radius:3px;
+  border:1px solid var(--bluebdr2);
+  color:var(--blue2) !important; background:var(--blueglow);
+  transition:background .2s !important;
+}
+.n-hire:hover { background:rgba(42,95,217,0.16) !important; }
+
+/* ─── HERO ─── */
+#home {
+  position:relative; z-index:1;
+  min-height:100vh; display:flex; align-items:center;
+  padding:88px 7% 80px;
+  overflow:hidden;
+}
+.hero-glow {
+  position:absolute; pointer-events:none;
+  width:900px; height:900px; border-radius:50%;
+  background:radial-gradient(circle, rgba(42,95,217,0.07) 0%, transparent 65%);
+  top:-300px; right:-200px; z-index:0;
+}
+.hero-glow2 {
+  position:absolute; pointer-events:none;
+  width:600px; height:600px; border-radius:50%;
+  background:radial-gradient(circle, rgba(14,124,134,0.06) 0%, transparent 65%);
+  bottom:-100px; left:-100px; z-index:0;
+}
+.hero-grid-lines {
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:
+    repeating-linear-gradient(90deg, rgba(42,95,217,0.03) 0px, rgba(42,95,217,0.03) 1px, transparent 1px, transparent 80px),
+    repeating-linear-gradient(0deg,  rgba(42,95,217,0.03) 0px, rgba(42,95,217,0.03) 1px, transparent 1px, transparent 80px);
+}
+.hero-wrap {
+  position:relative; z-index:1;
+  max-width:1260px; margin:0 auto; width:100%;
+  display:grid; grid-template-columns:1fr 380px; gap:90px; align-items:center;
+}
+
+.hero-tag {
+  display:inline-flex; align-items:center; gap:10px;
+  margin-bottom:32px;
+  font-size:0.65rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase;
+  color:var(--blue);
+  opacity:0; animation:fadeUp .7s .1s ease forwards;
+}
+.hero-tag-line { width:36px; height:1px; background:var(--blue); }
+
+.hero-h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3.4rem,5.5vw,5.2rem);
+  font-weight:700; line-height:1.02;
+  color:var(--headline); letter-spacing:-0.02em;
+  margin-bottom:10px;
+  opacity:0; animation:fadeUp .7s .18s ease forwards;
+}
+.hero-h1 span { color:var(--blue2); font-style:italic; font-weight:400; }
+
+.hero-divider {
+  width:56px; height:2px;
+  background:linear-gradient(90deg, var(--blue), transparent);
+  margin:22px 0;
+  opacity:0; animation:fadeUp .7s .25s ease forwards;
+}
+
+.hero-tagline {
+  font-size:0.78rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--cyan); margin-bottom:22px;
+  opacity:0; animation:fadeUp .7s .3s ease forwards;
+}
+
+.hero-desc {
+  max-width:520px; font-size:0.93rem; color:var(--slate2); line-height:1.95;
+  margin-bottom:40px;
+  opacity:0; animation:fadeUp .7s .36s ease forwards;
+}
+
+.hero-kpis {
+  display:flex; gap:0; margin-bottom:44px;
+  border:1px solid var(--bdr); border-radius:6px; overflow:hidden;
+  opacity:0; animation:fadeUp .7s .42s ease forwards;
+  background:var(--surface);
+}
+.kpi {
+  flex:1; padding:20px 24px; text-align:center;
+  border-right:1px solid var(--bdr);
+  background:var(--dim);
+}
+.kpi:last-child { border-right:none; }
+.kpi-val {
+  font-family:'Playfair Display',serif;
+  font-size:2.1rem; font-weight:700; color:var(--blue2); line-height:1;
+  display:block; margin-bottom:6px;
+}
+.kpi-lbl {
+  font-size:0.62rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--slate);
+}
+
+.hero-btns {
+  display:flex; gap:14px; flex-wrap:wrap;
+  opacity:0; animation:fadeUp .7s .48s ease forwards;
+}
+.btn-a {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 32px; border-radius:4px;
+  background:var(--blue); color:#fff; font-weight:700;
+  font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;
+  text-decoration:none; transition:filter .2s,transform .2s;
+}
+.btn-a:hover { filter:brightness(1.08); transform:translateY(-2px); }
+.btn-b {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:13px 32px; border-radius:4px;
+  border:1px solid var(--bdr); color:var(--slate2);
+  font-size:0.75rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase;
+  text-decoration:none; transition:border-color .2s,color .2s;
+}
+.btn-b:hover { border-color:var(--bluebdr2); color:var(--blue2); }
+
+/* portrait */
+.portrait-col {
+  display:flex; flex-direction:column; align-items:center;
+  opacity:0; animation:fadeUp .8s .22s ease forwards;
+}
+.portrait-stage { position:relative; width:310px; }
+.portrait-stage::before {
+  content:''; position:absolute;
+  inset:0; border-radius:8px;
+  border:1px solid rgba(42,95,217,0.18);
+  transform:translate(12px,14px); z-index:0;
+}
+.pframe {
+  position:relative; z-index:2;
+  width:310px; height:370px;
+  border-radius:6px; overflow:hidden;
+  border:1.5px solid var(--bluebdr2);
+  background:var(--surface2);
+  box-shadow:0 18px 40px rgba(15,23,42,0.08);
+}
+.pframe img {
+  width:100%; height:100%; object-fit:cover; object-position:top center;
+  display:block; filter:saturate(0.95) contrast(1.02) brightness(1.0);
+}
+.pframe-overlay {
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(to top, rgba(8,11,17,0.42) 0%, transparent 55%);
+}
+.pframe-init {
+  width:100%; height:100%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Playfair Display',serif; font-size:5rem; font-weight:700;
+  color:var(--blue); background:var(--surface2);
+}
+.corner { position:absolute; width:20px; height:20px; z-index:3; }
+.c-tl { top:-1px;  left:-1px;  border-top:2px solid var(--blue); border-left:2px solid var(--blue); }
+.c-tr { top:-1px;  right:-1px; border-top:2px solid var(--blue); border-right:2px solid var(--blue); }
+.c-bl { bottom:-1px; left:-1px;  border-bottom:2px solid var(--blue); border-left:2px solid var(--blue); }
+.c-br { bottom:-1px; right:-1px; border-bottom:2px solid var(--blue); border-right:2px solid var(--blue); }
+.avail-chip {
+  position:absolute; bottom:-18px; left:50%; transform:translateX(-50%);
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--ink2); border:1.5px solid var(--bluebdr2);
+  padding:8px 20px; border-radius:30px; white-space:nowrap; z-index:4;
+  box-shadow:0 6px 18px rgba(15,23,42,0.08);
+}
+.avail-dot {
+  width:7px; height:7px; border-radius:50%; background:#16A34A;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+.avail-txt { font-size:0.68rem; font-weight:600; letter-spacing:0.1em; color:var(--blue3); text-transform:uppercase; }
+.badge-row { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:50px; }
+.pbadge {
+  font-size:0.63rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;
+  padding:5px 13px; border-radius:2px;
+  background:var(--blueglow); border:1px solid var(--bluebdr);
+  color:var(--blue2);
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(22px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ─── SECTION SHELL ─── */
+.sec { position:relative; z-index:1; padding:104px 7%; }
+.sec.alt { background:var(--ink2); }
+.sec-max { max-width:1260px; margin:0 auto; }
+
+.overline {
+  display:flex; align-items:center; gap:10px; margin-bottom:12px;
+  font-size:0.63rem; font-weight:600; letter-spacing:0.24em; text-transform:uppercase;
+  color:var(--blue);
+}
+.overline::before { content:''; width:28px; height:1px; background:var(--blue); }
+
+.sec-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3.2vw,2.75rem); font-weight:700;
+  color:var(--headline); line-height:1.15; margin-bottom:60px;
+}
+.sec-title em { font-style:italic; font-weight:400; color:var(--blue2); }
+
+.hr { max-width:1260px; margin:0 auto; height:1px; background:linear-gradient(90deg,transparent,var(--bdr),transparent); }
+
+/* ─── ABOUT ─── */
+.about-grid { display:grid; grid-template-columns:1.15fr 0.85fr; gap:80px; align-items:start; }
+.about-body { font-size:0.91rem; color:var(--slate2); line-height:2; }
+.about-body p { margin-bottom:18px; }
+.about-nums {
+  display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:36px;
+}
+.astat {
+  padding:22px 18px; border-radius:6px;
+  background:var(--dim); border:1px solid var(--bdr);
+  border-left:2px solid var(--blue);
+  transition:border-color .2s;
+}
+.astat:hover { border-color:var(--bluebdr2); border-left-color:var(--blue2); }
+.astat-n {
+  font-family:'Playfair Display',serif;
+  font-size:1.9rem; font-weight:700; color:var(--blue2); line-height:1;
+  display:block; margin-bottom:5px;
+}
+.astat-l { font-size:0.67rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate); }
+.cert-stack { display:flex; flex-direction:column; gap:11px; }
+.crt {
+  display:flex; align-items:center; gap:15px;
+  padding:15px 18px; border-radius:6px;
+  background:var(--dim); border:1px solid var(--bdr);
+  transition:border-color .25s, transform .25s;
+}
+.crt:hover { border-color:var(--bluebdr2); transform:translateX(5px); }
+.crt-ico {
+  width:36px; height:36px; flex-shrink:0; border-radius:5px;
+  background:var(--blueglow); border:1px solid var(--bluebdr);
+  display:flex; align-items:center; justify-content:center;
+}
+.crt-ico svg { width:15px; height:15px; stroke:var(--blue); stroke-width:1.8; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.crt-name { font-size:0.83rem; font-weight:500; color:var(--cream); }
+.crt-sub  { font-size:0.7rem; color:var(--slate); margin-top:2px; }
+.pill {
+  margin-left:auto; flex-shrink:0; font-size:0.62rem; font-weight:600;
+  letter-spacing:0.08em; padding:3px 10px; border-radius:2px;
+}
+.pill-on  { background:var(--cyan-soft); border:1px solid var(--cyan-bdr); color:var(--cyan); }
+.pill-wip { background:var(--blueglow); border:1px solid var(--bluebdr); color:var(--blue2); }
+
+/* ─── SKILLS ─── */
+.skill-row { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:18px; }
+.sk {
+  padding:28px 24px; border-radius:7px;
+  background:var(--dim); border:1px solid var(--bdr);
+  position:relative; overflow:hidden;
+  transition:border-color .25s,transform .25s;
+}
+.sk::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:1.5px;
+  background:linear-gradient(90deg,var(--blue),rgba(42,95,217,0)); opacity:0;
+  transition:opacity .25s;
+}
+.sk:hover { border-color:var(--bluebdr); transform:translateY(-3px); }
+.sk:hover::before { opacity:1; }
+.sk-icon {
+  width:42px; height:42px; border-radius:7px; margin-bottom:18px;
+  background:var(--blueglow); border:1px solid var(--bluebdr);
+  display:flex; align-items:center; justify-content:center;
+}
+.sk-icon svg { width:18px; height:18px; stroke:var(--blue); stroke-width:1.7; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.sk-cat { font-size:0.65rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--blue); margin-bottom:14px; }
+.tags { display:flex; flex-wrap:wrap; gap:7px; }
+.tg {
+  font-size:0.73rem; color:var(--slate2);
+  padding:5px 11px; border-radius:3px;
+  border:1px solid var(--bdr); background:rgba(15,23,42,0.025);
+  transition:color .15s,border-color .15s;
+}
+.tg:hover { color:var(--blue3); border-color:var(--bluebdr); }
+.tools-strip {
+  padding:20px 26px; border-radius:7px;
+  background:var(--dim); border:1px solid var(--bdr);
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px;
+}
+.t-lbl { font-size:0.63rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--blue); margin-right:8px; flex-shrink:0; }
+.tool {
+  font-size:0.73rem; color:var(--slate2); padding:5px 14px;
+  border-radius:20px; border:1px solid var(--bluebdr);
+  background:var(--blueglow); transition:color .15s,background .15s;
+}
+.tool:hover { color:var(--blue3); background:rgba(42,95,217,0.15); }
+
+/* ─── EXPERIENCE ─── */
+.xp-wrap { padding-left:36px; position:relative; }
+.xp-wrap::before {
+  content:''; position:absolute; left:0; top:6px; bottom:0; width:1px;
+  background:linear-gradient(to bottom, var(--bluebdr2) 0%, transparent 100%);
+}
+.xp {
+  position:relative; margin-bottom:52px;
+  padding:28px 32px; border-radius:8px;
+  background:var(--dim); border:1px solid var(--bdr);
+  transition:border-color .25s;
+}
+.xp:hover { border-color:var(--bluebdr); }
+.xp::before {
+  content:''; position:absolute;
+  left:-40px; top:28px;
+  width:9px; height:9px; border-radius:50%;
+  background:var(--blue);
+  box-shadow:0 0 0 3px var(--ink),0 0 0 5px rgba(42,95,217,0.24);
+}
+.xp-header { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:6px; }
+.xp-role { font-family:'Playfair Display',serif; font-size:1.18rem; font-weight:600; color:var(--headline); line-height:1.25; }
+.xp-period {
+  flex-shrink:0; font-size:0.63rem; font-weight:600; letter-spacing:0.09em;
+  padding:5px 13px; border-radius:2px;
+  background:var(--blueglow); border:1px solid var(--bluebdr); color:var(--blue2);
+  white-space:nowrap;
+}
+.xp-co { font-size:0.78rem; color:var(--slate); margin-bottom:18px; }
+.xp-co strong { color:var(--slate2); font-weight:500; }
+.xp-pts { list-style:none; display:flex; flex-direction:column; gap:9px; }
+.xp-pts li {
+  font-size:0.86rem; color:var(--slate2); padding-left:20px;
+  position:relative; line-height:1.78;
+}
+.xp-pts li::before {
+  content:''; position:absolute; left:0; top:10px;
+  width:6px; height:1px; background:var(--blue);
+}
+.xp-sub {
+  font-size:0.68rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--blue); margin:22px 0 12px;
+  display:flex; align-items:center; gap:8px;
+}
+.xp-sub:first-of-type { margin-top:2px; }
+.xp-sub::before { content:''; width:14px; height:1px; background:var(--blue); }
+
+/* ─── PROJECTS / CERTIFICATIONS ─── */
+.pj-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.pj {
+  padding:36px 32px; border-radius:8px;
+  background:var(--dim); border:1px solid var(--bdr);
+  position:relative; overflow:hidden;
+  transition:border-color .25s,transform .25s;
+}
+.pj::after {
+  content:''; position:absolute; top:0; left:0; right:0; height:1.5px;
+  background:linear-gradient(90deg, rgba(14,124,134,0), var(--cyan), rgba(14,124,134,0));
+  opacity:0; transition:opacity .25s;
+}
+.pj:hover { border-color:var(--cyan-bdr); transform:translateY(-4px); }
+.pj:hover::after { opacity:1; }
+.pj-type {
+  font-size:0.62rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--cyan); margin-bottom:12px;
+  display:flex; align-items:center; gap:8px;
+}
+.pj-type::before { content:''; width:16px; height:1px; background:var(--cyan); }
+.pj-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:600; color:var(--headline); margin-bottom:8px; line-height:1.3; }
+.pj-org { font-size:0.73rem; color:var(--slate); margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid var(--bdr); }
+.pj-desc { font-size:0.84rem; color:var(--slate2); line-height:1.88; }
+.pj-link { display:inline-flex; align-items:center; gap:6px; margin-top:16px; font-size:0.72rem; font-weight:600; letter-spacing:0.08em; color:var(--cyan); text-decoration:none; transition:color .2s; }
+.pj-link:hover { color:var(--blue2); }
+
+/* ─── AWARDS (reuses edu layout) ─── */
+.edu-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.edu {
+  display:flex; gap:22px; align-items:flex-start;
+  padding:30px 28px; border-radius:8px;
+  background:var(--dim); border:1px solid var(--bdr);
+  transition:border-color .25s;
+}
+.edu:hover { border-color:var(--bluebdr); }
+.edu-icon {
+  width:50px; height:50px; flex-shrink:0; border-radius:7px;
+  background:var(--blueglow); border:1.5px solid var(--bluebdr);
+  display:flex; align-items:center; justify-content:center;
+}
+.edu-icon svg { width:20px; height:20px; stroke:var(--blue); stroke-width:1.6; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.edu-deg { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:600; color:var(--headline); margin-bottom:6px; line-height:1.3; }
+.edu-sch { font-size:0.83rem; color:var(--slate2); line-height:1.7; }
+
+/* ─── CONTACT ─── */
+.ct-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.ct-hl { font-family:'Playfair Display',serif; font-size:clamp(2rem,3vw,2.7rem); font-weight:700; color:var(--headline); line-height:1.2; margin-bottom:18px; }
+.ct-hl em { font-style:italic; font-weight:400; color:var(--blue2); }
+.ct-avail {
+  display:inline-flex; align-items:center; gap:9px;
+  padding:8px 18px; border-radius:20px; margin-bottom:22px;
+  background:rgba(22,163,74,0.08); border:1px solid rgba(22,163,74,0.25);
+  font-size:0.68rem; font-weight:600; letter-spacing:0.09em; color:#15803D;
+}
+.ct-sub { font-size:0.88rem; color:var(--slate2); line-height:1.95; margin-bottom:32px; max-width:400px; }
+.ct-links { display:flex; flex-direction:column; gap:11px; }
+.ct-row {
+  display:flex; align-items:center; gap:16px;
+  padding:16px 20px; border-radius:6px;
+  background:var(--dim); border:1px solid var(--bdr);
+  text-decoration:none; transition:border-color .2s,transform .2s;
+}
+.ct-row:hover { border-color:var(--bluebdr2); transform:translateX(5px); }
+.ct-ico {
+  width:38px; height:38px; flex-shrink:0; border-radius:4px;
+  background:var(--blueglow); border:1px solid var(--bluebdr);
+  display:flex; align-items:center; justify-content:center;
+}
+.ct-ico svg { width:15px; height:15px; stroke:var(--blue); stroke-width:1.8; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.ct-lbl { font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate); display:block; margin-bottom:2px; }
+.ct-val { font-size:0.84rem; font-weight:500; color:var(--cream); }
+
+/* ─── FOOTER ─── */
+footer {
+  position:relative; z-index:1;
+  background:var(--ink2); border-top:1px solid var(--bdr);
+  padding:26px 7%;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+}
+.ft-l { font-family:'Playfair Display',serif; font-size:1rem; color:var(--blue); }
+.ft-c { font-size:0.7rem; color:var(--slate); }
+.ft-r { display:flex; gap:22px; }
+.ft-r a { font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate); text-decoration:none; transition:color .2s; }
+.ft-r a:hover { color:var(--blue2); }
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1100px){
+  .hero-wrap { grid-template-columns:1fr; gap:60px; }
+  .portrait-col { order:-1; }
+  .portrait-stage { width:240px; }
+  .pframe { width:240px; height:285px; }
+  .about-grid,.ct-grid { grid-template-columns:1fr; gap:48px; }
+  .skill-row { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:768px){
+  nav ul { display:none; }
+  .skill-row,.pj-grid,.edu-grid { grid-template-columns:1fr; }
+  .hero-kpis { flex-direction:column; }
+  .kpi { border-right:none; border-bottom:1px solid var(--bdr); }
+  .kpi:last-child { border-bottom:none; }
+  .sec { padding:72px 5%; }
+  .xp-wrap { padding-left:20px; }
+  .xp { padding:22px 18px; }
+  .about-nums { grid-template-columns:1fr; }
+  .xp-header { flex-direction:column; gap:8px; }
+}
+@media(max-width:480px){
+  .hero-h1 { font-size:clamp(2.6rem,10vw,3.4rem); }
+  #home { padding:100px 6% 60px; }
+  .portrait-stage,.pframe { width:200px; }
+  .pframe { height:240px; }
+  .n-sub { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="n-logo" href="#home">
+    <div class="n-seal">GS</div>
+    <div class="n-text">
+      <div class="n-name">Gaurav Sinha</div>
+      <div class="n-sub">Dynamics 365 &amp; Power Platform</div>
+    </div>
+  </a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#contact" class="n-hire">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-wrap">
+
+    <!-- LEFT -->
+    <div>
+      <div class="hero-tag"><span class="hero-tag-line"></span>Dynamics 365 &amp; Power Platform Professional · Kolkata, India</div>
+      <h1 class="hero-h1">Gaurav<br><span>Sinha</span></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-tagline">Dynamics 365 &nbsp;·&nbsp; Power Platform &nbsp;·&nbsp; Enterprise IT</p>
+      <p class="hero-desc">Microsoft Dynamics 365 and Power Platform professional, Microsoft Certified: Power Platform Fundamentals (PL-900), with 1+ years of hands-on experience supporting Dynamics 365 Sales implementations, Power Platform solutions, Dataverse configuration, JavaScript customizations, Power Automate workflows and solution deployments — backed by 5+ years of enterprise IT experience in VMware virtualization, Windows infrastructure and PowerShell automation.</p>
+      <div class="hero-kpis">
+        <div class="kpi"><span class="kpi-val">1+</span><span class="kpi-lbl">Years in D365 &amp; Power Platform</span></div>
+        <div class="kpi"><span class="kpi-val">5+</span><span class="kpi-lbl">Years Enterprise IT Experience</span></div>
+        <div class="kpi"><span class="kpi-val">99.9%</span><span class="kpi-lbl">Infra Availability Sustained</span></div>
+        <div class="kpi"><span class="kpi-val">40%</span><span class="kpi-lbl">Manual Effort Reduced</span></div>
+      </div>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-a">Get In Touch &rarr;</a>
+        <a href="#experience" class="btn-b">View Experience</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: PORTRAIT -->
+    <div class="portrait-col">
+      <div class="portrait-stage">
+        <div class="pframe">
+          <img src="profile.jpg" alt="Gaurav Sinha"
+            onerror="this.style.display='none'; document.querySelector('.pframe-init').style.display='flex';">
+          <div class="pframe-init" style="display:none;">GS</div>
+          <div class="pframe-overlay"></div>
+        </div>
+        <div class="corner c-tl"></div>
+        <div class="corner c-tr"></div>
+        <div class="corner c-bl"></div>
+        <div class="corner c-br"></div>
+        <div class="avail-chip">
+          <div class="avail-dot"></div>
+          <span class="avail-txt">Open to Opportunities</span>
+        </div>
+      </div>
+      <div class="badge-row">
+        <span class="pbadge">PL-900 Certified</span>
+        <span class="pbadge">Power Platform</span>
+        <span class="pbadge">Dynamics 365</span>
+        <span class="pbadge">VMware Expert</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="sec-max">
+    <div class="overline">Background</div>
+    <h2 class="sec-title">About <em>Me</em></h2>
+    <div class="about-grid">
+      <div>
+        <div class="about-body">
+          <p>Microsoft Dynamics 365 and Power Platform professional, Microsoft Certified: Power Platform Fundamentals (PL-900), with 1+ years of hands-on experience supporting Dynamics 365 Sales implementations, Power Platform solutions, Dataverse configuration, JavaScript customizations, Power Automate workflows and solution deployments.</p>
+          <p>Backed by 5+ years of overall enterprise IT experience with a strong foundation in VMware virtualization and administration, Windows infrastructure and PowerShell automation, I combine technical expertise with business-focused problem solving to deliver scalable, reliable and client-centric Microsoft solutions.</p>
+          <p>My career at Capgemini India has spanned both worlds — from managing enterprise virtualization infrastructure and driving ITIL-based incident resolution, to configuring Dynamics 365 forms, security roles, Dataverse tables and Power Automate flows for client-specific business processes. That combination lets me approach Microsoft Business Applications work with an infrastructure engineer's discipline around reliability, security and deployment rigor.</p>
+        </div>
+        <div class="about-nums">
+          <div class="astat"><span class="astat-n">1+</span><span class="astat-l">Years D365 &amp; Power Platform</span></div>
+          <div class="astat"><span class="astat-n">5+</span><span class="astat-l">Years Enterprise IT Experience</span></div>
+          <div class="astat"><span class="astat-n">99.9%</span><span class="astat-l">Infrastructure Availability</span></div>
+          <div class="astat"><span class="astat-n">40%</span><span class="astat-l">Manual Effort Reduced</span></div>
+        </div>
+      </div>
+      <div class="cert-stack">
+        <div class="crt">
+          <div class="crt-ico"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div><div class="crt-name">Microsoft Certified: Power Platform Fundamentals (PL-900)</div><div class="crt-sub">Microsoft Business Applications</div></div>
+          <span class="pill pill-on">Active</span>
+        </div>
+        <div class="crt">
+          <div class="crt-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+          <div><div class="crt-name">McKinsey Forward Program</div><div class="crt-sub">Structured problem-solving &amp; leadership</div></div>
+          <span class="pill pill-on">Active</span>
+        </div>
+        <div class="crt">
+          <div class="crt-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><div class="crt-name">Leadership Skills</div><div class="crt-sub">IIM Ahmedabad</div></div>
+          <span class="pill pill-on">Active</span>
+        </div>
+        <div class="crt">
+          <div class="crt-ico"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <div><div class="crt-name">VCP-DCV Foundation &amp; vSphere 8.x Architecture</div><div class="crt-sub">Coursera</div></div>
+          <span class="pill pill-on">Active</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- SKILLS -->
+<section class="sec alt" id="skills">
+  <div class="sec-max">
+    <div class="overline">Capabilities</div>
+    <h2 class="sec-title">Core <em>Competencies</em></h2>
+    <div class="skill-row">
+      <div class="sk">
+        <div class="sk-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="sk-cat">Microsoft Business Applications</div>
+        <div class="tags">
+          <span class="tg">Dynamics 365</span><span class="tg">Microsoft Power Platform</span><span class="tg">Power Apps (Model-Driven)</span><span class="tg">Power Automate</span><span class="tg">Microsoft Dataverse</span>
+        </div>
+      </div>
+      <div class="sk">
+        <div class="sk-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <div class="sk-cat">Dynamics 365 Development</div>
+        <div class="tags">
+          <span class="tg">JavaScript</span><span class="tg">C# Plugins</span><span class="tg">Business Rules</span><span class="tg">Form &amp; View Customization</span><span class="tg">Security Roles</span><span class="tg">Solution Management</span><span class="tg">Plugin Registration Tool</span><span class="tg">XRM Toolbox</span>
+        </div>
+      </div>
+      <div class="sk">
+        <div class="sk-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="sk-cat">Automation &amp; Scripting</div>
+        <div class="tags">
+          <span class="tg">PowerShell</span><span class="tg">PowerCLI</span><span class="tg">AI-Assisted Development</span>
+        </div>
+      </div>
+    </div>
+    <div class="tools-strip">
+      <span class="t-lbl">Enterprise Technologies</span>
+      <span class="tool">VMware vSphere</span><span class="tool">VMware vCenter</span><span class="tool">ESXi</span><span class="tool">Dell OME</span><span class="tool">HP OneView</span><span class="tool">Windows Server Administration</span><span class="tool">Vendor Management</span><span class="tool">ServiceNow</span><span class="tool">Solarwinds</span><span class="tool">Splunk</span><span class="tool">ITIL</span>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- EXPERIENCE -->
+<section class="sec" id="experience">
+  <div class="sec-max">
+    <div class="overline">Career History</div>
+    <h2 class="sec-title">Professional <em>Experience</em></h2>
+    <div class="xp-wrap">
+
+      <div class="xp">
+        <div class="xp-header">
+          <div class="xp-role">Senior Analyst</div>
+          <span class="xp-period">Oct 2022 – Aug 2026</span>
+        </div>
+        <div class="xp-co"><strong>Capgemini India</strong></div>
+
+        <div class="xp-sub">Microsoft Dynamics 365 &amp; Power Platform</div>
+        <ul class="xp-pts">
+          <li>Configured Dynamics 365 Sales forms, views and business rules based on client requirements, including custom fields, optimized layouts, conditional field behavior, filtering, sorting and role-specific data visibility.</li>
+          <li>Configured Security Roles and access permissions across Dynamics 365 and Dataverse to implement secure, role-based access to records, entities and business operations.</li>
+          <li>Designed and configured Microsoft Dataverse tables, relationships, lookup columns and choice fields to support client-specific business processes and extend standard Dynamics 365 functionality.</li>
+          <li>Developed JavaScript client-side customizations using OnLoad, OnChange and OnSave events for field validation, auto-population, dynamic control behavior, date validation and enhanced user experience.</li>
+          <li>Developed C# plugins for server-side business logic, including duplicate record validation, custom auto-number generation and automated record updates during Create and Update operations; registered and tested plugins using the Plugin Registration Tool.</li>
+          <li>Built Power Automate cloud flows to automate approval workflows, record status updates, notifications, scheduled processes and related record creation, integrating with Microsoft Outlook and Teams to streamline business processes.</li>
+          <li>Managed Dynamics 365 solution lifecycle and deployments using managed and unmanaged solutions, including solution configuration, import/export, environment migration, release activities and deployment support.</li>
+          <li>Collaborated with functional consultants and business stakeholders to translate business requirements into technical solutions, supported UAT and defect resolution and participated in production deployments and post-go-live support.</li>
+        </ul>
+
+        <div class="xp-sub">Enterprise Infrastructure &amp; Virtualization</div>
+        <ul class="xp-pts">
+          <li>Led VMware ESXi 8.0 upgrades across production clusters with zero critical downtime while managing VMware vSphere environments, Windows Server, Active Directory and enterprise virtualization infrastructure.</li>
+          <li>Automated virtual machine provisioning and operational workflows using PowerShell and PowerCLI, reducing manual effort by 40% and improving deployment consistency.</li>
+          <li>Managed ESXi host lifecycle operations, including patch management, firmware upgrades, vulnerability remediation, capacity planning, backup and recovery and disaster recovery readiness, sustaining 99.9% infrastructure availability.</li>
+          <li>Resolved critical P1/P2/P3 incidents, performed root cause analysis and drove ITIL-based Change, Incident and Problem Management using ServiceNow to improve operational efficiency.</li>
+        </ul>
+      </div>
+
+      <div class="xp">
+        <div class="xp-header">
+          <div class="xp-role">Analyst</div>
+          <span class="xp-period">Jan 2021 – Sep 2022</span>
+        </div>
+        <div class="xp-co"><strong>Capgemini India</strong></div>
+
+        <div class="xp-sub">Enterprise Infrastructure &amp; Virtualization</div>
+        <ul class="xp-pts">
+          <li>Provisioned and deployed 100+ enterprise virtual machines using standardized templates, reducing deployment time by 50% while ensuring configuration consistency.</li>
+          <li>Managed the complete virtual machine lifecycle, including provisioning, snapshots, backups, recovery, decommissioning and resource allocation across VMware environments.</li>
+          <li>Monitored and optimized VMware infrastructure performance, improving CPU, memory and storage utilization while maintaining platform stability and availability.</li>
+          <li>Resolved virtualization-related incidents involving provisioning, performance, resource contention and access issues, consistently meeting SLA targets through root cause analysis.</li>
+          <li>Collaborated with cross-functional teams to support production deployments, develop infrastructure utilization reports and drive capacity planning and continuous service improvements.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- CERTIFICATIONS -->
+<section class="sec alt" id="certifications">
+  <div class="sec-max">
+    <div class="overline">Continuous Learning</div>
+    <h2 class="sec-title">Certifications &amp; <em>Training</em></h2>
+    <div class="pj-grid">
+      <div class="pj">
+        <div class="pj-type">Microsoft Business Applications</div>
+        <h3 class="pj-title">Power Platform Fundamentals (PL-900)</h3>
+        <div class="pj-org">Microsoft Certified</div>
+        <p class="pj-desc">Validated foundational knowledge of Microsoft Power Platform, including Power Apps, Power Automate, Power BI and Dataverse.</p>
+      </div>
+      <div class="pj">
+        <div class="pj-type">Professional Development</div>
+        <h3 class="pj-title">McKinsey Forward Program</h3>
+        <div class="pj-org">McKinsey &amp; Company</div>
+        <p class="pj-desc">Developed practical skills in structured problem-solving, communication, leadership, adaptability, resilience and digital productivity for the future of work.</p>
+      </div>
+      <div class="pj">
+        <div class="pj-type">VMware &amp; Virtualization</div>
+        <h3 class="pj-title">vSphere 8 Administration &amp; VCP-DCV Foundation</h3>
+        <div class="pj-org">Udemy &amp; Coursera</div>
+        <p class="pj-desc">Administration in vSphere 8 (Udemy); VMware Data Center Virtualization Foundations (Coursera); VCP-DCV Foundation &amp; vSphere 8.x Architecture (Coursera).</p>
+      </div>
+      <div class="pj">
+        <div class="pj-type">Project Management &amp; Methodologies</div>
+        <h3 class="pj-title">Agile, PM &amp; Lean Six Sigma</h3>
+        <div class="pj-org">Coursera, Google &amp; Simplilearn</div>
+        <p class="pj-desc">Agile Software Development (Coursera); Project Management (Google); Lean Six Sigma (Simplilearn); Lean Six Sigma White Belt (Coursera).</p>
+      </div>
+      <div class="pj">
+        <div class="pj-type">Leadership</div>
+        <h3 class="pj-title">Leadership Skills</h3>
+        <div class="pj-org">IIM Ahmedabad</div>
+        <p class="pj-desc">Built core leadership capabilities to guide cross-functional collaboration and stakeholder communication.</p>
+      </div>
+      <div class="pj">
+        <div class="pj-type">Generative AI</div>
+        <h3 class="pj-title">Prompt Engineering &amp; Generative AI</h3>
+        <div class="pj-org">Google &amp; Udemy</div>
+        <p class="pj-desc">Introduction to Generative AI (Google); Complete Prompt Engineering for AI Bootcamp (Udemy) — applied toward AI-assisted development practices.</p>
+      </div>
+      <div class="pj">
+        <div class="pj-type">Sustainability</div>
+        <h3 class="pj-title">Greenhouse Gas Accounting for IT</h3>
+        <div class="pj-org">Cisco</div>
+        <p class="pj-desc">Introduction to Greenhouse Gas Accounting for IT, covering sustainable practices within enterprise technology operations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- AWARDS -->
+<section class="sec" id="awards">
+  <div class="sec-max">
+    <div class="overline">Recognition</div>
+    <h2 class="sec-title">Awards &amp; <em>Recognition</em></h2>
+    <div class="edu-grid">
+      <div class="edu">
+        <div class="edu-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg></div>
+        <div>
+          <div class="edu-deg">GOAT Award</div>
+          <div class="edu-sch">Recognized for remediating critical infrastructure vulnerabilities across multiple remote sites through cross-functional collaboration.</div>
+        </div>
+      </div>
+      <div class="edu">
+        <div class="edu-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg></div>
+        <div>
+          <div class="edu-deg">Employee of the Month</div>
+          <div class="edu-sch">Awarded for executing ESXi patching, BIOS and firmware upgrades with zero production downtime.</div>
+        </div>
+      </div>
+      <div class="edu">
+        <div class="edu-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div>
+          <div class="edu-deg">Certificate of Excellence</div>
+          <div class="edu-sch">Recognized for outstanding execution of VMware infrastructure operations and service delivery.</div>
+        </div>
+      </div>
+      <div class="edu">
+        <div class="edu-icon"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <div>
+          <div class="edu-deg">Client Appreciation</div>
+          <div class="edu-sch">Received multiple client recognitions for successfully delivering MES IT downtime activities and infrastructure maintenance.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- CONTACT -->
+<section class="sec alt" id="contact">
+  <div class="sec-max">
+    <div class="ct-grid">
+      <div>
+        <div class="overline">Let's Connect</div>
+        <h2 class="ct-hl">Open to new<br><em>opportunities</em></h2>
+        <div class="ct-avail"><div class="avail-dot"></div>Available · Kolkata, India</div>
+        <p class="ct-sub">Whether you need a Dynamics 365 &amp; Power Platform specialist to configure, customize and deploy business solutions, or an engineer who brings enterprise infrastructure rigor to Microsoft Business Applications — let's start a conversation.</p>
+        <a href="mailto:sinhagaurav.101.gs@gmail.com" class="btn-a">Send a Message &rarr;</a>
+      </div>
+      <div class="ct-links">
+        <a class="ct-row" href="tel:+919163969172">
+          <div class="ct-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.58 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l1.8-1.8a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><span class="ct-lbl">Phone</span><span class="ct-val">+91 91639 69172</span></div>
+        </a>
+        <a class="ct-row" href="mailto:sinhagaurav.101.gs@gmail.com">
+          <div class="ct-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><span class="ct-lbl">Email</span><span class="ct-val">sinhagaurav.101.gs@gmail.com</span></div>
+        </a>
+        <a class="ct-row" href="https://linkedin.com/in/gauravsinha" target="_blank">
+          <div class="ct-ico"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <div><span class="ct-lbl">LinkedIn</span><span class="ct-val">linkedin.com/in/gauravsinha</span></div>
+        </a>
+        <a class="ct-row" href="#">
+          <div class="ct-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><span class="ct-lbl">Location</span><span class="ct-val">Kolkata, India</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-l">Gaurav Sinha</div>
+  <div class="ft-c">&copy; 2026 Gaurav Sinha &nbsp;·&nbsp; All Rights Reserved</div>
+  <div class="ft-r">
+    <a href="#home">Top</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
