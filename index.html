@@ -3,889 +3,1312 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gaurav Sinha — Dynamics 365 &amp; Power Platform Professional</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Gaurav Sinha | Dynamics 365 &amp; Power Platform Professional</title>
+<meta name="description" content="Portfolio of Gaurav Sinha, Microsoft Dynamics 365 and Power Platform professional with 5+ years of enterprise IT experience across Dynamics 365, Power Apps, Power Automate, Dataverse, VMware and automation.">
+<meta name="keywords" content="Dynamics 365 Consultant, Dynamics 365 Developer, Power Platform Consultant, Power Apps Developer, Power Automate, Microsoft Dataverse, Dynamics 365 Sales, JavaScript Dynamics 365, C# Plugins, VMware Administrator, VMware vSphere, PowerShell, PowerCLI, Microsoft Power Platform, D365 Consultant">
+<meta name="author" content="Gaurav Sinha">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --ink:       #F6F7FA;
-  --ink2:      #FFFFFF;
-  --ink3:      #EEF1F6;
-  --surface:   #FFFFFF;
-  --surface2:  #F3F5F9;
-  --blue:      #2A5FD9;
-  --blue2:     #1E4FC0;
-  --blue3:     #14336E;
-  --blueglow:  rgba(42,95,217,0.08);
-  --bluebdr:   rgba(42,95,217,0.22);
-  --bluebdr2:  rgba(42,95,217,0.42);
-  --slate:     #64748B;
-  --slate2:    #3C4758;
-  --slate3:    #1E293B;
-  --dim:       rgba(15,23,42,0.035);
-  --bdr:       rgba(15,23,42,0.10);
-  --cyan:      #0E7C86;
-  --cyan-soft: rgba(14,124,134,0.08);
-  --cyan-bdr:  rgba(14,124,134,0.25);
-  --cream:     #111827;
-  --headline:  #0E1626;
+:root{
+  --bg:#050505;
+  --bg2:#0A0A0D;
+  --panel:#0E0E13;
+  --panel2:#131319;
+  --bdr:rgba(245,245,245,0.08);
+  --bdr2:rgba(245,245,245,0.14);
+  --white:#F5F5F5;
+  --muted:#9CA3AF;
+  --muted2:#6B7280;
+
+  --red:#E50914;
+  --red-soft:rgba(229,9,20,0.14);
+  --orange:#FF7A00;
+  --orange-soft:rgba(255,122,0,0.14);
+  --purple:#8B3DFF;
+  --purple-soft:rgba(139,61,255,0.14);
+  --yellow:#FFD400;
+  --yellow-soft:rgba(255,212,0,0.14);
+  --green:#32CD32;
+  --green-soft:rgba(50,205,50,0.14);
+  --blue:#2496FF;
+  --blue-soft:rgba(36,150,255,0.14);
+
+  --accent: var(--red);
+  --accent-soft: var(--red-soft);
 }
 
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body {
-  background: var(--ink);
-  color: var(--cream);
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  line-height: 1.7;
-  overflow-x: hidden;
+*,*::before,*::after{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  background:
+    radial-gradient(ellipse 1100px 700px at 82% 8%, rgba(139,61,255,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 900px 600px at 10% 92%, rgba(36,150,255,0.08) 0%, transparent 55%),
+    var(--bg);
+  color:var(--white);
+  font-family:'Inter',sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+  transition:background .8s ease;
 }
-::-webkit-scrollbar { width:3px; }
-::-webkit-scrollbar-track { background: var(--ink); }
-::-webkit-scrollbar-thumb { background: var(--bluebdr2); }
+img,svg{ display:block; max-width:100%; }
+a{ color:inherit; }
+h1,h2,h3,h4{ font-family:'Space Grotesk',sans-serif; }
+::-webkit-scrollbar{ width:4px; }
+::-webkit-scrollbar-track{ background:var(--bg); }
+::-webkit-scrollbar-thumb{ background:var(--bdr2); border-radius:4px; }
 
-body::after {
-  content:'';
-  position:fixed; inset:0; z-index:0; pointer-events:none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='1' height='1' fill='rgba(42,95,217,0.035)'/%3E%3C/svg%3E");
+.wrap{ max-width:1280px; margin:0 auto; padding:0 6%; }
+.eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:0.68rem; font-weight:600; letter-spacing:0.28em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:16px; transition:color .5s ease;
+}
+.eyebrow::before{ content:''; width:26px; height:1px; background:var(--accent); transition:background .5s ease; }
+.sec-h{
+  font-size:clamp(1.9rem,3.4vw,2.9rem); font-weight:700; line-height:1.15;
+  margin-bottom:14px; letter-spacing:-0.01em;
+}
+.sec-h em{ font-style:normal; color:var(--accent); transition:color .5s ease; }
+.sec-sub{ color:var(--muted); font-size:0.98rem; max-width:640px; margin-bottom:52px; }
+.section{ position:relative; padding:120px 0; border-top:1px solid var(--bdr); }
+.section.tight{ padding:90px 0; }
+.pill{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:0.62rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+  padding:5px 12px; border-radius:20px; border:1px solid var(--bdr2); color:var(--muted);
+  background:rgba(255,255,255,0.02);
+}
+.sample-tag{
+  display:inline-block; font-size:0.6rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--yellow); border:1px solid rgba(255,212,0,0.35); background:rgba(255,212,0,0.08);
+  padding:4px 10px; border-radius:4px; margin-bottom:18px;
 }
 
 /* ─── NAV ─── */
-nav {
-  position:fixed; top:0; width:100%; z-index:999;
-  height:68px; padding:0 7%;
-  display:flex; align-items:center; justify-content:space-between;
-  background:rgba(255,255,255,0.90);
-  backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+nav{
+  position:fixed; top:0; left:0; right:0; z-index:900;
+  height:64px; display:flex; align-items:center; justify-content:space-between;
+  padding:0 6%;
+  background:rgba(5,5,5,0.72);
+  backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
   border-bottom:1px solid var(--bdr);
 }
-.n-logo { display:flex; align-items:center; gap:13px; text-decoration:none; }
-.n-seal {
-  width:38px; height:38px; border-radius:50%;
-  border:1.5px solid var(--bluebdr2);
+.n-logo{ display:flex; align-items:center; gap:11px; text-decoration:none; }
+.n-mark{
+  width:32px; height:32px; border-radius:7px; flex-shrink:0;
+  background:linear-gradient(135deg,#1a1a22,#08080a);
+  border:1px solid var(--bdr2);
   display:flex; align-items:center; justify-content:center;
-  font-family:'Playfair Display',serif; font-size:0.9rem; font-weight:700;
-  color:var(--blue); letter-spacing:0.04em; flex-shrink:0;
-  background:radial-gradient(circle at 40% 35%, rgba(42,95,217,0.12), transparent 70%);
+  font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.72rem;
+  color:var(--white); position:relative; overflow:hidden;
 }
-.n-text { line-height:1.25; }
-.n-name { font-size:0.82rem; font-weight:600; color:var(--cream); letter-spacing:0.04em; }
-.n-sub  { font-size:0.65rem; font-weight:400; color:var(--slate); letter-spacing:0.1em; text-transform:uppercase; }
-nav ul  { display:flex; gap:32px; list-style:none; align-items:center; }
-nav a   { color:var(--slate); text-decoration:none; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; transition:color .2s; }
-nav a:hover { color:var(--blue2); }
-.n-hire {
-  padding:8px 22px; border-radius:3px;
-  border:1px solid var(--bluebdr2);
-  color:var(--blue2) !important; background:var(--blueglow);
-  transition:background .2s !important;
+.n-mark::after{
+  content:''; position:absolute; inset:0;
+  background:conic-gradient(from 0deg,var(--red),var(--orange),var(--yellow),var(--green),var(--blue),var(--purple),var(--red));
+  opacity:0.55; mix-blend-mode:screen;
 }
-.n-hire:hover { background:rgba(42,95,217,0.16) !important; }
+.n-mark span{ position:relative; z-index:1; }
+.n-name{ font-size:0.78rem; font-weight:600; letter-spacing:0.02em; }
+.n-sub{ font-size:0.6rem; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; }
+.n-right{ display:flex; align-items:center; gap:10px; }
+.n-btn{
+  font-size:0.62rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+  padding:9px 16px; border-radius:4px; text-decoration:none; cursor:pointer;
+  border:1px solid var(--bdr2); color:var(--white); background:rgba(255,255,255,0.03);
+  transition:border-color .2s,background .2s; white-space:nowrap;
+}
+.n-btn:hover{ border-color:var(--bdr2); background:rgba(255,255,255,0.07); }
+.n-btn.primary{ background:var(--white); color:#050505; border-color:var(--white); }
+.n-btn.primary:hover{ filter:brightness(0.9); }
+
+/* ─── STONE DOT RAIL (persistent nav) ─── */
+.stone-rail{
+  position:fixed; right:26px; top:50%; transform:translateY(-50%); z-index:800;
+  display:flex; flex-direction:column; gap:16px;
+}
+.stone-dot{
+  width:13px; height:13px; border-radius:50%; cursor:pointer; border:none; padding:0;
+  background:#2a2a30; box-shadow:0 0 0 3px rgba(255,255,255,0.02);
+  transition:transform .25s, box-shadow .35s, background .35s;
+  position:relative;
+}
+.stone-dot::after{
+  content:attr(data-label);
+  position:absolute; right:22px; top:50%; transform:translateY(-50%);
+  font-size:0.6rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--muted); white-space:nowrap; opacity:0; pointer-events:none;
+  transition:opacity .2s;
+}
+.stone-dot:hover::after{ opacity:1; }
+.stone-dot.on{ transform:scale(1.35); }
+.stone-dot[data-c="red"].on{ background:var(--red); box-shadow:0 0 14px 3px var(--red); }
+.stone-dot[data-c="orange"].on{ background:var(--orange); box-shadow:0 0 14px 3px var(--orange); }
+.stone-dot[data-c="purple"].on{ background:var(--purple); box-shadow:0 0 14px 3px var(--purple); }
+.stone-dot[data-c="yellow"].on{ background:var(--yellow); box-shadow:0 0 14px 3px var(--yellow); }
+.stone-dot[data-c="green"].on{ background:var(--green); box-shadow:0 0 14px 3px var(--green); }
+.stone-dot[data-c="blue"].on{ background:var(--blue); box-shadow:0 0 14px 3px var(--blue); }
+.stone-dot.visited{ opacity:0.85; }
+@media(max-width:900px){ .stone-rail{ display:none; } }
 
 /* ─── HERO ─── */
-#home {
-  position:relative; z-index:1;
-  min-height:100vh; display:flex; align-items:center;
-  padding:88px 7% 80px;
-  overflow:hidden;
+#home{
+  position:relative; min-height:100vh; display:flex; align-items:center;
+  padding:120px 0 70px; overflow:hidden;
 }
-.hero-glow {
-  position:absolute; pointer-events:none;
-  width:900px; height:900px; border-radius:50%;
-  background:radial-gradient(circle, rgba(42,95,217,0.07) 0%, transparent 65%);
-  top:-300px; right:-200px; z-index:0;
+.hero-grid{
+  position:relative; z-index:2; display:grid; grid-template-columns:1.05fr 0.95fr;
+  gap:50px; align-items:center; width:100%;
 }
-.hero-glow2 {
-  position:absolute; pointer-events:none;
-  width:600px; height:600px; border-radius:50%;
-  background:radial-gradient(circle, rgba(14,124,134,0.06) 0%, transparent 65%);
-  bottom:-100px; left:-100px; z-index:0;
+.hero-kicker{
+  font-size:0.66rem; font-weight:700; letter-spacing:0.3em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:22px; display:flex; align-items:center; gap:10px;
 }
-.hero-grid-lines {
-  position:absolute; inset:0; z-index:0; pointer-events:none;
-  background:
-    repeating-linear-gradient(90deg, rgba(42,95,217,0.03) 0px, rgba(42,95,217,0.03) 1px, transparent 1px, transparent 80px),
-    repeating-linear-gradient(0deg,  rgba(42,95,217,0.03) 0px, rgba(42,95,217,0.03) 1px, transparent 1px, transparent 80px);
+.hero-kicker .dot{ width:6px; height:6px; border-radius:50%; background:var(--red); animation:dotpulse 2s ease-in-out infinite; }
+@keyframes dotpulse{ 0%,100%{opacity:1} 50%{opacity:.25} }
+.hero-h1{
+  font-size:clamp(2.6rem,5.4vw,4.4rem); font-weight:700; line-height:1.05; letter-spacing:-0.02em;
+  margin-bottom:20px;
 }
-.hero-wrap {
-  position:relative; z-index:1;
-  max-width:1260px; margin:0 auto; width:100%;
-  display:grid; grid-template-columns:1fr 380px; gap:90px; align-items:center;
+.hero-h1 .accent{
+  background:linear-gradient(90deg,var(--red),var(--orange),var(--yellow),var(--green),var(--blue),var(--purple));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  background-size:220% auto; animation:sheen 8s linear infinite;
 }
+@keyframes sheen{ 0%{background-position:0% 50%} 100%{background-position:220% 50%} }
+.hero-title{
+  font-size:0.92rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--white); margin-bottom:18px;
+}
+.hero-line{
+  font-family:'Space Grotesk',sans-serif; font-size:1.15rem; font-weight:500; color:var(--muted);
+  margin-bottom:22px;
+}
+.hero-desc{ color:var(--muted); font-size:0.95rem; max-width:540px; margin-bottom:36px; }
+.hero-btns{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-bottom:22px; }
+.btn-main{
+  display:inline-flex; align-items:center; gap:10px; padding:15px 30px; border-radius:4px;
+  background:var(--white); color:#050505; font-weight:700; font-size:0.72rem;
+  letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; border:none; cursor:pointer;
+  transition:transform .2s, box-shadow .3s;
+}
+.btn-main:hover{ transform:translateY(-2px); box-shadow:0 10px 26px rgba(229,9,20,0.25); }
+.btn-ghost{
+  display:inline-flex; align-items:center; gap:10px; padding:14px 28px; border-radius:4px;
+  border:1px solid var(--bdr2); color:var(--white); font-size:0.72rem; font-weight:600;
+  letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; cursor:pointer; background:transparent;
+  transition:border-color .2s, color .2s;
+}
+.btn-ghost:hover{ border-color:var(--accent); color:var(--accent); }
+.hero-dl{ font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-decoration:none; border-bottom:1px solid var(--bdr2); padding-bottom:2px; transition:color .2s,border-color .2s; }
+.hero-dl:hover{ color:var(--white); border-color:var(--white); }
 
-.hero-tag {
-  display:inline-flex; align-items:center; gap:10px;
-  margin-bottom:32px;
-  font-size:0.65rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase;
-  color:var(--blue);
-  opacity:0; animation:fadeUp .7s .1s ease forwards;
+/* Gauntlet stage */
+.g-stage{ position:relative; display:flex; align-items:center; justify-content:center; }
+.g-glow{
+  position:absolute; width:520px; height:520px; border-radius:50%;
+  background:radial-gradient(circle, var(--accent-glow,rgba(229,9,20,0.16)) 0%, transparent 68%);
+  filter:blur(10px); z-index:0; transition:background 1s ease; pointer-events:none;
 }
-.hero-tag-line { width:36px; height:1px; background:var(--blue); }
+.gauntlet-svg{ position:relative; z-index:1; width:100%; max-width:440px; height:auto; }
+.stone-el{ cursor:pointer; }
+.stone-el circle.core{ transition:fill .5s ease, r .4s ease; }
+.stone-el circle.aura{ transition:opacity .5s ease, r .5s ease; opacity:0.18; }
+.stone-el.active circle.aura{ opacity:0.75; animation:stonepulse 2.4s ease-in-out infinite; }
+.stone-el.visited circle.aura{ opacity:0.4; }
+@keyframes stonepulse{ 0%,100%{ opacity:0.75; } 50%{ opacity:0.35; } }
+.plate{ fill:url(#plateGrad); stroke:rgba(255,255,255,0.06); stroke-width:1; }
+.plate-edge{ fill:none; stroke:rgba(255,255,255,0.10); stroke-width:1; }
 
-.hero-h1 {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(3.4rem,5.5vw,5.2rem);
-  font-weight:700; line-height:1.02;
-  color:var(--headline); letter-spacing:-0.02em;
-  margin-bottom:10px;
-  opacity:0; animation:fadeUp .7s .18s ease forwards;
-}
-.hero-h1 span { color:var(--blue2); font-style:italic; font-weight:400; }
+.hero-note{ font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted2); text-align:center; margin-top:10px; }
 
-.hero-divider {
-  width:56px; height:2px;
-  background:linear-gradient(90deg, var(--blue), transparent);
-  margin:22px 0;
-  opacity:0; animation:fadeUp .7s .25s ease forwards;
+/* ─── TRUST STRIP ─── */
+.trust-strip{
+  border-top:1px solid var(--bdr); border-bottom:1px solid var(--bdr);
+  padding:22px 0; display:flex; flex-wrap:wrap; gap:28px; align-items:center; justify-content:center;
+  color:var(--muted2); font-size:0.66rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase;
 }
+.trust-strip span{ opacity:0.85; }
 
-.hero-tagline {
-  font-size:0.78rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase;
-  color:var(--cyan); margin-bottom:22px;
-  opacity:0; animation:fadeUp .7s .3s ease forwards;
-}
-
-.hero-desc {
-  max-width:520px; font-size:0.93rem; color:var(--slate2); line-height:1.95;
-  margin-bottom:40px;
-  opacity:0; animation:fadeUp .7s .36s ease forwards;
-}
-
-.hero-kpis {
-  display:flex; gap:0; margin-bottom:44px;
-  border:1px solid var(--bdr); border-radius:6px; overflow:hidden;
-  opacity:0; animation:fadeUp .7s .42s ease forwards;
-  background:var(--surface);
-}
-.kpi {
-  flex:1; padding:20px 24px; text-align:center;
-  border-right:1px solid var(--bdr);
-  background:var(--dim);
-}
-.kpi:last-child { border-right:none; }
-.kpi-val {
-  font-family:'Playfair Display',serif;
-  font-size:2.1rem; font-weight:700; color:var(--blue2); line-height:1;
-  display:block; margin-bottom:6px;
-}
-.kpi-lbl {
-  font-size:0.62rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase;
-  color:var(--slate);
-}
-
-.hero-btns {
-  display:flex; gap:14px; flex-wrap:wrap;
-  opacity:0; animation:fadeUp .7s .48s ease forwards;
-}
-.btn-a {
-  display:inline-flex; align-items:center; gap:10px;
-  padding:14px 32px; border-radius:4px;
-  background:var(--blue); color:#fff; font-weight:700;
-  font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;
-  text-decoration:none; transition:filter .2s,transform .2s;
-}
-.btn-a:hover { filter:brightness(1.08); transform:translateY(-2px); }
-.btn-b {
-  display:inline-flex; align-items:center; gap:10px;
-  padding:13px 32px; border-radius:4px;
-  border:1px solid var(--bdr); color:var(--slate2);
-  font-size:0.75rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase;
-  text-decoration:none; transition:border-color .2s,color .2s;
-}
-.btn-b:hover { border-color:var(--bluebdr2); color:var(--blue2); }
-
-/* portrait */
-.portrait-col {
-  display:flex; flex-direction:column; align-items:center;
-  opacity:0; animation:fadeUp .8s .22s ease forwards;
-}
-.portrait-stage { position:relative; width:310px; }
-.portrait-stage::before {
-  content:''; position:absolute;
-  inset:0; border-radius:8px;
-  border:1px solid rgba(42,95,217,0.18);
-  transform:translate(12px,14px); z-index:0;
-}
-.pframe {
-  position:relative; z-index:2;
-  width:310px; height:370px;
-  border-radius:6px; overflow:hidden;
-  border:1.5px solid var(--bluebdr2);
-  background:var(--surface2);
-  box-shadow:0 18px 40px rgba(15,23,42,0.08);
-}
-.pframe img {
-  width:100%; height:100%; object-fit:cover; object-position:top center;
-  display:block; filter:saturate(0.95) contrast(1.02) brightness(1.0);
-}
-.pframe-overlay {
-  position:absolute; inset:0; z-index:1;
-  background:linear-gradient(to top, rgba(8,11,17,0.42) 0%, transparent 55%);
-}
-.pframe-init {
-  width:100%; height:100%;
+/* ─── STONE SECTION SHELL ─── */
+.stone-sec{ position:relative; }
+.stone-sec .wrap{ position:relative; z-index:1; }
+.stone-head{ display:flex; align-items:center; gap:16px; margin-bottom:8px; }
+.stone-chip{
+  width:46px; height:46px; border-radius:50%; flex-shrink:0; position:relative;
   display:flex; align-items:center; justify-content:center;
-  font-family:'Playfair Display',serif; font-size:5rem; font-weight:700;
-  color:var(--blue); background:var(--surface2);
+  border:1.5px solid var(--bdr2);
 }
-.corner { position:absolute; width:20px; height:20px; z-index:3; }
-.c-tl { top:-1px;  left:-1px;  border-top:2px solid var(--blue); border-left:2px solid var(--blue); }
-.c-tr { top:-1px;  right:-1px; border-top:2px solid var(--blue); border-right:2px solid var(--blue); }
-.c-bl { bottom:-1px; left:-1px;  border-bottom:2px solid var(--blue); border-left:2px solid var(--blue); }
-.c-br { bottom:-1px; right:-1px; border-bottom:2px solid var(--blue); border-right:2px solid var(--blue); }
-.avail-chip {
-  position:absolute; bottom:-18px; left:50%; transform:translateX(-50%);
-  display:inline-flex; align-items:center; gap:8px;
-  background:var(--ink2); border:1.5px solid var(--bluebdr2);
-  padding:8px 20px; border-radius:30px; white-space:nowrap; z-index:4;
-  box-shadow:0 6px 18px rgba(15,23,42,0.08);
+.stone-chip .dotcore{ width:16px; height:16px; border-radius:50%; }
+.stone-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:4px; }
+.stone-tags .pill{ color:var(--white); }
+
+.metric-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:38px 0 44px; }
+.metric{
+  padding:24px 20px; border-radius:8px; background:var(--panel); border:1px solid var(--bdr);
+  text-align:center; border-top:2px solid var(--accent); transition:border-color .5s ease;
 }
-.avail-dot {
-  width:7px; height:7px; border-radius:50%; background:#16A34A;
-  animation:pulse 2s ease-in-out infinite;
+.metric-val{ font-family:'Space Grotesk',sans-serif; font-size:2.1rem; font-weight:700; color:var(--white); line-height:1; margin-bottom:8px; }
+.metric-lbl{ font-size:0.63rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
+
+.two-col{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:start; }
+.body-txt{ color:var(--muted); font-size:0.94rem; line-height:1.95; }
+.body-txt p{ margin-bottom:16px; }
+.chiplist{ display:flex; flex-wrap:wrap; gap:9px; margin-top:22px; }
+.chip{
+  font-size:0.75rem; padding:7px 14px; border-radius:20px; border:1px solid var(--bdr2);
+  color:var(--white); background:rgba(255,255,255,0.03);
 }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
-.avail-txt { font-size:0.68rem; font-weight:600; letter-spacing:0.1em; color:var(--blue3); text-transform:uppercase; }
-.badge-row { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:50px; }
-.pbadge {
-  font-size:0.63rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;
-  padding:5px 13px; border-radius:2px;
-  background:var(--blueglow); border:1px solid var(--bluebdr);
-  color:var(--blue2);
+.bring-panel{
+  border-radius:10px; border:1px solid var(--bdr); background:var(--panel); padding:30px 28px;
+  border-left:2px solid var(--accent); transition:border-color .5s ease;
+}
+.bring-title{ font-size:0.66rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:18px; transition:color .5s ease; }
+.bring-list{ list-style:none; display:flex; flex-direction:column; gap:11px; }
+.bring-list li{ font-size:0.85rem; color:var(--muted); padding-left:18px; position:relative; }
+.bring-list li::before{ content:''; position:absolute; left:0; top:9px; width:6px; height:1px; background:var(--accent); transition:background .5s ease; }
+
+/* visualization panels */
+.viz-panel{
+  margin-top:44px; border-radius:12px; border:1px solid var(--bdr); background:var(--panel);
+  padding:34px 30px; position:relative; overflow:hidden;
+}
+.viz-label{ font-size:0.6rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted2); margin-bottom:24px; }
+
+/* Orange - observability nodes */
+.node-flow{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+.node{
+  flex:1; min-width:100px; text-align:center; padding:16px 10px; border-radius:8px;
+  background:var(--panel2); border:1px solid var(--bdr); font-size:0.68rem; font-weight:600;
+  letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); position:relative;
+}
+.node.alert{ border-color:var(--orange); color:var(--orange); }
+.node-arrow{ color:var(--muted2); font-size:1rem; flex-shrink:0; }
+.rca-note{ margin-top:18px; font-size:0.78rem; color:var(--orange); text-align:center; }
+
+/* Purple - power apps form demo */
+.app-demo{ border-radius:10px; overflow:hidden; border:1px solid var(--bdr2); }
+.app-top{ background:var(--panel2); padding:12px 18px; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--white); border-bottom:1px solid var(--bdr); display:flex; justify-content:space-between; }
+.app-body{ padding:22px; display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.app-field{ display:flex; flex-direction:column; gap:6px; }
+.app-field label{ font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted2); }
+.app-field .val{ padding:10px 12px; border-radius:5px; background:var(--panel2); border:1px solid var(--bdr); font-size:0.82rem; color:var(--white); transition:border-color .3s, background .3s; }
+.app-field.js .val{ border-color:var(--purple); }
+.app-status{ margin-top:14px; display:flex; align-items:center; gap:8px; font-size:0.68rem; color:var(--purple); letter-spacing:0.05em; }
+
+/* Yellow - dashboard */
+.dash-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.dash-card{ padding:18px; border-radius:8px; background:var(--panel2); border:1px solid var(--bdr); }
+.dash-lbl{ font-size:0.62rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted2); margin-bottom:10px; }
+.dash-val{ font-family:'Space Grotesk',sans-serif; font-size:1.5rem; font-weight:700; color:var(--yellow); }
+.bar-track{ height:6px; border-radius:4px; background:rgba(255,255,255,0.06); margin-top:12px; overflow:hidden; }
+.bar-fill{ height:100%; background:var(--yellow); border-radius:4px; width:0%; transition:width 1.4s ease; }
+
+/* Green - dataverse architecture */
+.dv-chain{ display:flex; flex-direction:column; align-items:center; gap:4px; }
+.dv-node{ width:100%; max-width:280px; padding:12px 18px; border-radius:8px; background:var(--panel2); border:1px solid var(--green); color:var(--white); font-size:0.76rem; font-weight:600; letter-spacing:0.04em; text-align:center; }
+.dv-arrow{ color:var(--green); font-size:0.9rem; }
+.dv-shield{ margin-top:18px; padding:12px 18px; border:1px dashed rgba(50,205,50,0.5); border-radius:30px; font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--green); text-align:center; }
+
+/* Blue - automation pipeline */
+.pipeline{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center; }
+.pnode{ padding:12px 16px; border-radius:20px; background:var(--panel2); border:1px solid var(--blue); font-size:0.68rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--blue); }
+.parrow{ color:var(--muted2); }
+
+/* ─── CONVERGENCE ─── */
+#convergence{ text-align:center; padding:130px 0; }
+.conv-stones{ display:flex; justify-content:center; gap:14px; margin-bottom:44px; flex-wrap:wrap; }
+.conv-stone{ display:flex; flex-direction:column; align-items:center; gap:10px; }
+.conv-dot{ width:22px; height:22px; border-radius:50%; }
+.conv-name{ font-size:0.62rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); }
+.conv-quote{ font-family:'Space Grotesk',sans-serif; font-size:clamp(1.5rem,3.4vw,2.4rem); font-weight:700; margin-bottom:14px; }
+.conv-sub{ color:var(--muted); font-size:1rem; margin-bottom:44px; }
+.conv-equation{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:16px; font-family:'Space Grotesk',sans-serif; font-size:1rem; font-weight:600; color:var(--muted); }
+.conv-equation .plus{ color:var(--muted2); }
+.conv-equation .eq{ color:var(--white); font-size:1.3rem; }
+.conv-name-final{
+  font-size:clamp(1.8rem,3.6vw,2.6rem); font-weight:700;
+  background:linear-gradient(90deg,var(--red),var(--orange),var(--yellow),var(--green),var(--blue),var(--purple));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
 }
 
-@keyframes fadeUp {
-  from { opacity:0; transform:translateY(22px); }
-  to   { opacity:1; transform:translateY(0); }
+/* ─── CASE STUDY FLOW ─── */
+.flow-wrap{ display:flex; flex-direction:column; align-items:center; gap:0; max-width:520px; margin:0 auto; }
+.flow-step{
+  width:100%; padding:16px 24px; border-radius:8px; background:var(--panel); border:1px solid var(--bdr);
+  text-align:center; font-size:0.82rem; font-weight:600; letter-spacing:0.03em;
 }
+.flow-arrow{ color:var(--muted2); padding:6px 0; font-size:0.9rem; }
 
-/* ─── SECTION SHELL ─── */
-.sec { position:relative; z-index:1; padding:104px 7%; }
-.sec.alt { background:var(--ink2); }
-.sec-max { max-width:1260px; margin:0 auto; }
-
-.overline {
-  display:flex; align-items:center; gap:10px; margin-bottom:12px;
-  font-size:0.63rem; font-weight:600; letter-spacing:0.24em; text-transform:uppercase;
-  color:var(--blue);
+/* ─── TECH STACK CONSTELLATION ─── */
+.stack-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.stack-group{ padding:26px 24px; border-radius:10px; background:var(--panel); border:1px solid var(--bdr); }
+.stack-title{ font-size:0.64rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-bottom:16px; }
+.stack-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+.stack-tags button{
+  font-size:0.74rem; padding:6px 13px; border-radius:16px; border:1px solid var(--bdr2);
+  background:rgba(255,255,255,0.02); color:var(--white); cursor:pointer; transition:all .2s;
 }
-.overline::before { content:''; width:28px; height:1px; background:var(--blue); }
+.stack-tags button:hover{ transform:translateY(-2px); }
 
-.sec-title {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,3.2vw,2.75rem); font-weight:700;
-  color:var(--headline); line-height:1.15; margin-bottom:60px;
+/* ─── JOURNEY TIMELINE ─── */
+.journey-track{ display:flex; gap:0; overflow-x:auto; padding-bottom:12px; scrollbar-width:thin; }
+.j-stop{ flex:0 0 300px; padding:0 20px; position:relative; }
+.j-stop:not(:last-child)::after{
+  content:'→'; position:absolute; right:-6px; top:26px; color:var(--muted2); font-size:1rem;
 }
-.sec-title em { font-style:italic; font-weight:400; color:var(--blue2); }
+.j-year{ font-family:'Space Grotesk',sans-serif; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; color:var(--accent); margin-bottom:10px; }
+.j-role{ font-size:1.05rem; font-weight:600; margin-bottom:10px; }
+.j-list{ list-style:none; display:flex; flex-direction:column; gap:6px; }
+.j-list li{ font-size:0.78rem; color:var(--muted); padding-left:14px; position:relative; }
+.j-list li::before{ content:''; position:absolute; left:0; top:8px; width:5px; height:1px; background:var(--muted2); }
 
-.hr { max-width:1260px; margin:0 auto; height:1px; background:linear-gradient(90deg,transparent,var(--bdr),transparent); }
+/* ─── ACHIEVEMENTS ─── */
+.ach-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.ach-card{ padding:28px 24px; border-radius:10px; background:var(--panel); border:1px solid var(--bdr); transition:border-color .2s, transform .2s; }
+.ach-card:hover{ border-color:var(--bdr2); transform:translateY(-3px); }
+.ach-ico{ width:38px; height:38px; border-radius:8px; background:var(--yellow-soft); border:1px solid rgba(255,212,0,0.3); display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
+.ach-ico svg{ width:16px; height:16px; stroke:var(--yellow); fill:none; stroke-width:1.8; }
+.ach-name{ font-size:0.95rem; font-weight:700; margin-bottom:8px; }
+.ach-desc{ font-size:0.8rem; color:var(--muted); line-height:1.7; }
+
+/* ─── CERTIFICATIONS VAULT ─── */
+.vault{ border-radius:12px; border:1px solid var(--bdr); background:linear-gradient(160deg,var(--panel),var(--panel2)); padding:8px; }
+.vault-main{
+  padding:34px 30px; border-radius:8px; background:rgba(255,212,0,0.05); border:1px solid rgba(255,212,0,0.28);
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px; margin-bottom:8px;
+}
+.vault-main .lbl{ font-size:0.64rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--yellow); margin-bottom:8px; }
+.vault-main .name{ font-size:1.3rem; font-weight:700; }
+.vault-badge{ font-family:'Space Grotesk',sans-serif; font-size:1.4rem; font-weight:700; padding:12px 22px; border-radius:8px; background:rgba(255,212,0,0.12); border:1px solid rgba(255,212,0,0.4); color:var(--yellow); }
+.vault-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; padding:8px; }
+.vault-item{ padding:18px 16px; border-radius:6px; background:var(--panel2); border:1px solid var(--bdr); }
+.vault-item .cat{ font-size:0.6rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted2); margin-bottom:6px; }
+.vault-item .desc{ font-size:0.82rem; color:var(--white); line-height:1.5; }
 
 /* ─── ABOUT ─── */
-.about-grid { display:grid; grid-template-columns:1.15fr 0.85fr; gap:80px; align-items:start; }
-.about-body { font-size:0.91rem; color:var(--slate2); line-height:2; }
-.about-body p { margin-bottom:18px; }
-.about-nums {
-  display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:36px;
-}
-.astat {
-  padding:22px 18px; border-radius:6px;
-  background:var(--dim); border:1px solid var(--bdr);
-  border-left:2px solid var(--blue);
-  transition:border-color .2s;
-}
-.astat:hover { border-color:var(--bluebdr2); border-left-color:var(--blue2); }
-.astat-n {
-  font-family:'Playfair Display',serif;
-  font-size:1.9rem; font-weight:700; color:var(--blue2); line-height:1;
-  display:block; margin-bottom:5px;
-}
-.astat-l { font-size:0.67rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate); }
-.cert-stack { display:flex; flex-direction:column; gap:11px; }
-.crt {
-  display:flex; align-items:center; gap:15px;
-  padding:15px 18px; border-radius:6px;
-  background:var(--dim); border:1px solid var(--bdr);
-  transition:border-color .25s, transform .25s;
-}
-.crt:hover { border-color:var(--bluebdr2); transform:translateX(5px); }
-.crt-ico {
-  width:36px; height:36px; flex-shrink:0; border-radius:5px;
-  background:var(--blueglow); border:1px solid var(--bluebdr);
-  display:flex; align-items:center; justify-content:center;
-}
-.crt-ico svg { width:15px; height:15px; stroke:var(--blue); stroke-width:1.8; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-.crt-name { font-size:0.83rem; font-weight:500; color:var(--cream); }
-.crt-sub  { font-size:0.7rem; color:var(--slate); margin-top:2px; }
-.pill {
-  margin-left:auto; flex-shrink:0; font-size:0.62rem; font-weight:600;
-  letter-spacing:0.08em; padding:3px 10px; border-radius:2px;
-}
-.pill-on  { background:var(--cyan-soft); border:1px solid var(--cyan-bdr); color:var(--cyan); }
-.pill-wip { background:var(--blueglow); border:1px solid var(--bluebdr); color:var(--blue2); }
-
-/* ─── SKILLS ─── */
-.skill-row { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:18px; }
-.sk {
-  padding:28px 24px; border-radius:7px;
-  background:var(--dim); border:1px solid var(--bdr);
-  position:relative; overflow:hidden;
-  transition:border-color .25s,transform .25s;
-}
-.sk::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:1.5px;
-  background:linear-gradient(90deg,var(--blue),rgba(42,95,217,0)); opacity:0;
-  transition:opacity .25s;
-}
-.sk:hover { border-color:var(--bluebdr); transform:translateY(-3px); }
-.sk:hover::before { opacity:1; }
-.sk-icon {
-  width:42px; height:42px; border-radius:7px; margin-bottom:18px;
-  background:var(--blueglow); border:1px solid var(--bluebdr);
-  display:flex; align-items:center; justify-content:center;
-}
-.sk-icon svg { width:18px; height:18px; stroke:var(--blue); stroke-width:1.7; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-.sk-cat { font-size:0.65rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--blue); margin-bottom:14px; }
-.tags { display:flex; flex-wrap:wrap; gap:7px; }
-.tg {
-  font-size:0.73rem; color:var(--slate2);
-  padding:5px 11px; border-radius:3px;
-  border:1px solid var(--bdr); background:rgba(15,23,42,0.025);
-  transition:color .15s,border-color .15s;
-}
-.tg:hover { color:var(--blue3); border-color:var(--bluebdr); }
-.tools-strip {
-  padding:20px 26px; border-radius:7px;
-  background:var(--dim); border:1px solid var(--bdr);
-  display:flex; flex-wrap:wrap; align-items:center; gap:10px;
-}
-.t-lbl { font-size:0.63rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--blue); margin-right:8px; flex-shrink:0; }
-.tool {
-  font-size:0.73rem; color:var(--slate2); padding:5px 14px;
-  border-radius:20px; border:1px solid var(--bluebdr);
-  background:var(--blueglow); transition:color .15s,background .15s;
-}
-.tool:hover { color:var(--blue3); background:rgba(42,95,217,0.15); }
-
-/* ─── EXPERIENCE ─── */
-.xp-wrap { padding-left:36px; position:relative; }
-.xp-wrap::before {
-  content:''; position:absolute; left:0; top:6px; bottom:0; width:1px;
-  background:linear-gradient(to bottom, var(--bluebdr2) 0%, transparent 100%);
-}
-.xp {
-  position:relative; margin-bottom:52px;
-  padding:28px 32px; border-radius:8px;
-  background:var(--dim); border:1px solid var(--bdr);
-  transition:border-color .25s;
-}
-.xp:hover { border-color:var(--bluebdr); }
-.xp::before {
-  content:''; position:absolute;
-  left:-40px; top:28px;
-  width:9px; height:9px; border-radius:50%;
-  background:var(--blue);
-  box-shadow:0 0 0 3px var(--ink),0 0 0 5px rgba(42,95,217,0.24);
-}
-.xp-header { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:6px; }
-.xp-role { font-family:'Playfair Display',serif; font-size:1.18rem; font-weight:600; color:var(--headline); line-height:1.25; }
-.xp-period {
-  flex-shrink:0; font-size:0.63rem; font-weight:600; letter-spacing:0.09em;
-  padding:5px 13px; border-radius:2px;
-  background:var(--blueglow); border:1px solid var(--bluebdr); color:var(--blue2);
-  white-space:nowrap;
-}
-.xp-co { font-size:0.78rem; color:var(--slate); margin-bottom:18px; }
-.xp-co strong { color:var(--slate2); font-weight:500; }
-.xp-pts { list-style:none; display:flex; flex-direction:column; gap:9px; }
-.xp-pts li {
-  font-size:0.86rem; color:var(--slate2); padding-left:20px;
-  position:relative; line-height:1.78;
-}
-.xp-pts li::before {
-  content:''; position:absolute; left:0; top:10px;
-  width:6px; height:1px; background:var(--blue);
-}
-.xp-sub {
-  font-size:0.68rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
-  color:var(--blue); margin:22px 0 12px;
-  display:flex; align-items:center; gap:8px;
-}
-.xp-sub:first-of-type { margin-top:2px; }
-.xp-sub::before { content:''; width:14px; height:1px; background:var(--blue); }
-
-/* ─── PROJECTS / CERTIFICATIONS ─── */
-.pj-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
-.pj {
-  padding:36px 32px; border-radius:8px;
-  background:var(--dim); border:1px solid var(--bdr);
-  position:relative; overflow:hidden;
-  transition:border-color .25s,transform .25s;
-}
-.pj::after {
-  content:''; position:absolute; top:0; left:0; right:0; height:1.5px;
-  background:linear-gradient(90deg, rgba(14,124,134,0), var(--cyan), rgba(14,124,134,0));
-  opacity:0; transition:opacity .25s;
-}
-.pj:hover { border-color:var(--cyan-bdr); transform:translateY(-4px); }
-.pj:hover::after { opacity:1; }
-.pj-type {
-  font-size:0.62rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase;
-  color:var(--cyan); margin-bottom:12px;
-  display:flex; align-items:center; gap:8px;
-}
-.pj-type::before { content:''; width:16px; height:1px; background:var(--cyan); }
-.pj-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:600; color:var(--headline); margin-bottom:8px; line-height:1.3; }
-.pj-org { font-size:0.73rem; color:var(--slate); margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid var(--bdr); }
-.pj-desc { font-size:0.84rem; color:var(--slate2); line-height:1.88; }
-.pj-link { display:inline-flex; align-items:center; gap:6px; margin-top:16px; font-size:0.72rem; font-weight:600; letter-spacing:0.08em; color:var(--cyan); text-decoration:none; transition:color .2s; }
-.pj-link:hover { color:var(--blue2); }
-
-/* ─── AWARDS (reuses edu layout) ─── */
-.edu-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
-.edu {
-  display:flex; gap:22px; align-items:flex-start;
-  padding:30px 28px; border-radius:8px;
-  background:var(--dim); border:1px solid var(--bdr);
-  transition:border-color .25s;
-}
-.edu:hover { border-color:var(--bluebdr); }
-.edu-icon {
-  width:50px; height:50px; flex-shrink:0; border-radius:7px;
-  background:var(--blueglow); border:1.5px solid var(--bluebdr);
-  display:flex; align-items:center; justify-content:center;
-}
-.edu-icon svg { width:20px; height:20px; stroke:var(--blue); stroke-width:1.6; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-.edu-deg { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:600; color:var(--headline); margin-bottom:6px; line-height:1.3; }
-.edu-sch { font-size:0.83rem; color:var(--slate2); line-height:1.7; }
+.about-grid{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center; }
+.about-stats{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.astat{ padding:24px 20px; border-radius:8px; background:var(--panel); border:1px solid var(--bdr); text-align:center; }
+.astat-n{ font-family:'Space Grotesk',sans-serif; font-size:1.5rem; font-weight:700; margin-bottom:6px; }
+.astat-l{ font-size:0.62rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); }
 
 /* ─── CONTACT ─── */
-.ct-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
-.ct-hl { font-family:'Playfair Display',serif; font-size:clamp(2rem,3vw,2.7rem); font-weight:700; color:var(--headline); line-height:1.2; margin-bottom:18px; }
-.ct-hl em { font-style:italic; font-weight:400; color:var(--blue2); }
-.ct-avail {
-  display:inline-flex; align-items:center; gap:9px;
-  padding:8px 18px; border-radius:20px; margin-bottom:22px;
-  background:rgba(22,163,74,0.08); border:1px solid rgba(22,163,74,0.25);
-  font-size:0.68rem; font-weight:600; letter-spacing:0.09em; color:#15803D;
-}
-.ct-sub { font-size:0.88rem; color:var(--slate2); line-height:1.95; margin-bottom:32px; max-width:400px; }
-.ct-links { display:flex; flex-direction:column; gap:11px; }
-.ct-row {
-  display:flex; align-items:center; gap:16px;
-  padding:16px 20px; border-radius:6px;
-  background:var(--dim); border:1px solid var(--bdr);
-  text-decoration:none; transition:border-color .2s,transform .2s;
-}
-.ct-row:hover { border-color:var(--bluebdr2); transform:translateX(5px); }
-.ct-ico {
-  width:38px; height:38px; flex-shrink:0; border-radius:4px;
-  background:var(--blueglow); border:1px solid var(--bluebdr);
-  display:flex; align-items:center; justify-content:center;
-}
-.ct-ico svg { width:15px; height:15px; stroke:var(--blue); stroke-width:1.8; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-.ct-lbl { font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate); display:block; margin-bottom:2px; }
-.ct-val { font-size:0.84rem; font-weight:500; color:var(--cream); }
+#contact{ text-align:center; }
+.ct-h{ font-size:clamp(2rem,4vw,3rem); font-weight:700; margin-bottom:14px; }
+.ct-sub{ color:var(--muted); font-size:1rem; margin-bottom:40px; }
+.ct-btns{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:40px; }
+.ct-info{ display:flex; gap:26px; justify-content:center; flex-wrap:wrap; color:var(--muted); font-size:0.82rem; }
+.ct-info a{ text-decoration:none; color:var(--muted); transition:color .2s; }
+.ct-info a:hover{ color:var(--white); }
 
 /* ─── FOOTER ─── */
-footer {
-  position:relative; z-index:1;
-  background:var(--ink2); border-top:1px solid var(--bdr);
-  padding:26px 7%;
-  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+footer{
+  padding:28px 6%; border-top:1px solid var(--bdr); display:flex; justify-content:space-between;
+  align-items:center; flex-wrap:wrap; gap:12px; font-size:0.7rem; color:var(--muted2);
 }
-.ft-l { font-family:'Playfair Display',serif; font-size:1rem; color:var(--blue); }
-.ft-c { font-size:0.7rem; color:var(--slate); }
-.ft-r { display:flex; gap:22px; }
-.ft-r a { font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate); text-decoration:none; transition:color .2s; }
-.ft-r a:hover { color:var(--blue2); }
+footer a{ color:var(--muted2); text-decoration:none; margin-left:18px; transition:color .2s; }
+footer a:hover{ color:var(--white); }
+
+/* ─── RECRUITER MODE OVERLAY ─── */
+.rec-overlay{
+  position:fixed; inset:0; z-index:2000; background:rgba(3,3,4,0.97);
+  display:none; align-items:flex-start; justify-content:center; overflow-y:auto; padding:80px 20px;
+}
+.rec-overlay.show{ display:flex; }
+.rec-card{ width:100%; max-width:640px; background:var(--panel); border:1px solid var(--bdr2); border-radius:14px; padding:44px; position:relative; }
+.rec-close{
+  position:absolute; top:20px; right:20px; width:34px; height:34px; border-radius:50%;
+  border:1px solid var(--bdr2); background:transparent; color:var(--white); cursor:pointer; font-size:1rem;
+}
+.rec-name{ font-size:1.8rem; font-weight:700; margin-bottom:6px; }
+.rec-title{ color:var(--muted); font-size:0.95rem; margin-bottom:22px; }
+.rec-badges{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom:28px; }
+.rec-badges .pill{ color:var(--white); border-color:var(--bdr2); }
+.rec-sec-title{ font-size:0.64rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin:26px 0 12px; }
+.rec-skills{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:6px; }
+.rec-skills span{ font-size:0.76rem; padding:6px 12px; border-radius:14px; background:rgba(255,255,255,0.04); border:1px solid var(--bdr2); }
+.rec-list{ list-style:none; display:flex; flex-direction:column; gap:8px; }
+.rec-list li{ font-size:0.84rem; color:var(--muted); padding-left:16px; position:relative; }
+.rec-list li::before{ content:''; position:absolute; left:0; top:9px; width:6px; height:1px; background:var(--white); }
+.rec-cta{ display:flex; gap:12px; margin-top:30px; flex-wrap:wrap; }
 
 /* ─── RESPONSIVE ─── */
-@media(max-width:1100px){
-  .hero-wrap { grid-template-columns:1fr; gap:60px; }
-  .portrait-col { order:-1; }
-  .portrait-stage { width:240px; }
-  .pframe { width:240px; height:285px; }
-  .about-grid,.ct-grid { grid-template-columns:1fr; gap:48px; }
-  .skill-row { grid-template-columns:1fr 1fr; }
+@media(max-width:1000px){
+  .hero-grid{ grid-template-columns:1fr; }
+  .g-stage{ order:-1; margin-bottom:10px; }
+  .gauntlet-svg{ max-width:320px; }
+  .two-col{ grid-template-columns:1fr; gap:36px; }
+  .stack-grid{ grid-template-columns:1fr 1fr; }
+  .ach-grid{ grid-template-columns:1fr 1fr; }
+  .vault-grid{ grid-template-columns:1fr 1fr; }
+  .about-grid{ grid-template-columns:1fr; }
 }
-@media(max-width:768px){
-  nav ul { display:none; }
-  .skill-row,.pj-grid,.edu-grid { grid-template-columns:1fr; }
-  .hero-kpis { flex-direction:column; }
-  .kpi { border-right:none; border-bottom:1px solid var(--bdr); }
-  .kpi:last-child { border-bottom:none; }
-  .sec { padding:72px 5%; }
-  .xp-wrap { padding-left:20px; }
-  .xp { padding:22px 18px; }
-  .about-nums { grid-template-columns:1fr; }
-  .xp-header { flex-direction:column; gap:8px; }
+@media(max-width:680px){
+  .section{ padding:80px 0; }
+  .metric-row{ grid-template-columns:1fr; }
+  .app-body{ grid-template-columns:1fr; }
+  .dash-grid{ grid-template-columns:1fr; }
+  .stack-grid{ grid-template-columns:1fr; }
+  .ach-grid{ grid-template-columns:1fr; }
+  .vault-grid{ grid-template-columns:1fr; }
+  .vault-main{ flex-direction:column; align-items:flex-start; }
+  .n-sub{ display:none; }
+  .conv-equation{ flex-direction:column; }
+  footer{ flex-direction:column; text-align:center; }
+  footer a{ margin:0 8px; }
 }
-@media(max-width:480px){
-  .hero-h1 { font-size:clamp(2.6rem,10vw,3.4rem); }
-  #home { padding:100px 6% 60px; }
-  .portrait-stage,.pframe { width:200px; }
-  .pframe { height:240px; }
-  .n-sub { display:none; }
+
+@media(prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
 }
 </style>
 </head>
-<body>
+<body data-stone="red">
 
 <!-- NAV -->
 <nav>
   <a class="n-logo" href="#home">
-    <div class="n-seal">GS</div>
-    <div class="n-text">
+    <div class="n-mark"><span>GS</span></div>
+    <div>
       <div class="n-name">Gaurav Sinha</div>
       <div class="n-sub">Dynamics 365 &amp; Power Platform</div>
     </div>
   </a>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#certifications">Certifications</a></li>
-    <li><a href="#awards">Awards</a></li>
-    <li><a href="#contact" class="n-hire">Hire Me</a></li>
-  </ul>
+  <div class="n-right">
+    <a class="n-btn" href="https://drive.google.com/file/d/1SFGHsuYYOjY_jThkUHi7XSeDxaAKA3NH/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+    <button class="n-btn primary" id="recruiterBtn" type="button">Recruiter View</button>
+  </div>
 </nav>
+
+<!-- STONE RAIL (persistent nav) -->
+<div class="stone-rail" id="stoneRail">
+  <button class="stone-dot" data-c="red" data-target="#stone-red" data-label="Infrastructure"></button>
+  <button class="stone-dot" data-c="orange" data-target="#stone-orange" data-label="Observability"></button>
+  <button class="stone-dot" data-c="purple" data-target="#stone-purple" data-label="Applications"></button>
+  <button class="stone-dot" data-c="yellow" data-target="#stone-yellow" data-label="Insights"></button>
+  <button class="stone-dot" data-c="green" data-target="#stone-green" data-label="Data"></button>
+  <button class="stone-dot" data-c="blue" data-target="#stone-blue" data-label="Automation"></button>
+</div>
 
 <!-- HERO -->
 <section id="home">
-  <div class="hero-glow"></div>
-  <div class="hero-glow2"></div>
-  <div class="hero-grid-lines"></div>
-  <div class="hero-wrap">
-
-    <!-- LEFT -->
+  <div class="wrap hero-grid">
     <div>
-      <div class="hero-tag"><span class="hero-tag-line"></span>Dynamics 365 &amp; Power Platform Professional · Kolkata, India</div>
-      <h1 class="hero-h1">Gaurav<br><span>Sinha</span></h1>
-      <div class="hero-divider"></div>
-      <p class="hero-tagline">Dynamics 365 &nbsp;·&nbsp; Power Platform &nbsp;·&nbsp; Enterprise IT</p>
-      <p class="hero-desc">Microsoft Dynamics 365 and Power Platform professional, Microsoft Certified: Power Platform Fundamentals (PL-900), with 1+ years of hands-on experience supporting Dynamics 365 Sales implementations, Power Platform solutions, Dataverse configuration, JavaScript customizations, Power Automate workflows and solution deployments — backed by 5+ years of enterprise IT experience in VMware virtualization, Windows infrastructure and PowerShell automation.</p>
-      <div class="hero-kpis">
-        <div class="kpi"><span class="kpi-val">1+</span><span class="kpi-lbl">Years in D365 &amp; Power Platform</span></div>
-        <div class="kpi"><span class="kpi-val">5+</span><span class="kpi-lbl">Years Enterprise IT Experience</span></div>
-        <div class="kpi"><span class="kpi-val">99.9%</span><span class="kpi-lbl">Infra Availability Sustained</span></div>
-        <div class="kpi"><span class="kpi-val">40%</span><span class="kpi-lbl">Manual Effort Reduced</span></div>
-      </div>
+      <div class="hero-kicker"><span class="dot"></span>Kolkata, India &nbsp;·&nbsp; Dynamics 365 &amp; Power Platform</div>
+      <h1 class="hero-h1">Six technologies.<br>One <span class="accent">enterprise mindset.</span></h1>
+      <div class="hero-title">Gaurav Sinha — Dynamics 365 &amp; Power Platform Professional</div>
+      <p class="hero-line">"I don't collect Infinity Stones. I build solutions with them."</p>
+      <p class="hero-desc">Microsoft Dynamics 365 &amp; Power Platform professional backed by 5+ years of enterprise infrastructure experience across virtualization, automation and IT operations.</p>
       <div class="hero-btns">
-        <a href="#contact" class="btn-a">Get In Touch &rarr;</a>
-        <a href="#experience" class="btn-b">View Experience</a>
+        <a href="#stone-red" class="btn-main">Explore the Gauntlet &rarr;</a>
+        <a href="#journey" class="btn-ghost">View My Experience</a>
       </div>
+      <a href="https://drive.google.com/file/d/1SFGHsuYYOjY_jThkUHi7XSeDxaAKA3NH/view?usp=sharing" target="_blank" rel="noopener" class="hero-dl">Download Resume &darr;</a>
     </div>
 
-    <!-- RIGHT: PORTRAIT -->
-    <div class="portrait-col">
-      <div class="portrait-stage">
-        <div class="pframe">
-          <img src="Photograph.jpg" alt="Gaurav Sinha"
-            onerror="this.style.display='none'; document.querySelector('.pframe-init').style.display='flex';">
-          <div class="pframe-init" style="display:none;">GS</div>
-          <div class="pframe-overlay"></div>
-        </div>
-        <div class="corner c-tl"></div>
-        <div class="corner c-tr"></div>
-        <div class="corner c-bl"></div>
-        <div class="corner c-br"></div>
-        <div class="avail-chip">
-          <div class="avail-dot"></div>
-          <span class="avail-txt">Open to Opportunities</span>
-        </div>
-      </div>
-      <div class="badge-row">
-        <span class="pbadge">PL-900 Certified</span>
-        <span class="pbadge">Power Platform</span>
-        <span class="pbadge">Dynamics 365</span>
-        <span class="pbadge">VMware Expert</span>
-      </div>
-    </div>
+    <div class="g-stage">
+      <div class="g-glow" id="gGlow"></div>
+      <svg class="gauntlet-svg" id="gauntletSvg" viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="plateGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#232329"/>
+            <stop offset="55%" stop-color="#131317"/>
+            <stop offset="100%" stop-color="#08080a"/>
+          </linearGradient>
+          <radialGradient id="grad-red" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#ff6b6f"/><stop offset="55%" stop-color="var(--red)"/><stop offset="100%" stop-color="#7a0007"/>
+          </radialGradient>
+          <radialGradient id="grad-orange" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#ffc07a"/><stop offset="55%" stop-color="var(--orange)"/><stop offset="100%" stop-color="#803e00"/>
+          </radialGradient>
+          <radialGradient id="grad-purple" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#c6a2ff"/><stop offset="55%" stop-color="var(--purple)"/><stop offset="100%" stop-color="#3a1780"/>
+          </radialGradient>
+          <radialGradient id="grad-yellow" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#fff2a8"/><stop offset="55%" stop-color="var(--yellow)"/><stop offset="100%" stop-color="#806b00"/>
+          </radialGradient>
+          <radialGradient id="grad-green" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#a4eea4"/><stop offset="55%" stop-color="var(--green)"/><stop offset="100%" stop-color="#146414"/>
+          </radialGradient>
+          <radialGradient id="grad-blue" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#a9d8ff"/><stop offset="55%" stop-color="var(--blue)"/><stop offset="100%" stop-color="#0d3f70"/>
+          </radialGradient>
+          <filter id="stoneglow" x="-120%" y="-120%" width="340%" height="340%">
+            <feGaussianBlur stdDeviation="5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
 
+        <!-- wrist cuff -->
+        <rect class="plate" x="110" y="392" width="180" height="56" rx="16"/>
+        <line class="plate-edge" x1="110" y1="412" x2="290" y2="412"/>
+        <line class="plate-edge" x1="110" y1="430" x2="290" y2="430"/>
+
+        <!-- palm plate -->
+        <path class="plate" d="M80,382 L80,300 Q80,254 120,249 L280,249 Q320,254 320,300 L320,382 Q320,402 300,402 L100,402 Q80,402 80,382 Z"/>
+
+        <!-- fingers -->
+        <g class="plate">
+          <rect x="95" y="110" width="30" height="145" rx="14"/>
+          <rect x="140" y="60" width="30" height="195" rx="14"/>
+          <rect x="185" y="40" width="30" height="215" rx="14"/>
+          <rect x="230" y="60" width="30" height="195" rx="14"/>
+          <rect x="275" y="110" width="30" height="145" rx="14"/>
+        </g>
+        <g class="plate-edge">
+          <line x1="95" y1="182" x2="125" y2="182"/>
+          <line x1="140" y1="157" x2="170" y2="157"/>
+          <line x1="185" y1="147" x2="215" y2="147"/>
+          <line x1="230" y1="157" x2="260" y2="157"/>
+          <line x1="275" y1="182" x2="305" y2="182"/>
+        </g>
+
+        <!-- knuckle ridge accent -->
+        <path class="plate-edge" d="M85,270 Q200,235 315,270"/>
+
+        <!-- STONES -->
+        <g class="stone-el" data-stone="red" id="stone-svg-red">
+          <circle class="aura" cx="90" cy="300" r="24" fill="var(--red)" filter="url(#stoneglow)"/>
+          <circle class="core" cx="90" cy="300" r="11" fill="url(#grad-red)" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+        </g>
+        <g class="stone-el" data-stone="orange" id="stone-svg-orange">
+          <circle class="aura" cx="134" cy="278" r="24" fill="var(--orange)" filter="url(#stoneglow)"/>
+          <circle class="core" cx="134" cy="278" r="11" fill="url(#grad-orange)" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+        </g>
+        <g class="stone-el" data-stone="purple" id="stone-svg-purple">
+          <circle class="aura" cx="178" cy="262" r="24" fill="var(--purple)" filter="url(#stoneglow)"/>
+          <circle class="core" cx="178" cy="262" r="11" fill="url(#grad-purple)" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+        </g>
+        <g class="stone-el" data-stone="yellow" id="stone-svg-yellow">
+          <circle class="aura" cx="222" cy="262" r="24" fill="var(--yellow)" filter="url(#stoneglow)"/>
+          <circle class="core" cx="222" cy="262" r="11" fill="url(#grad-yellow)" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+        </g>
+        <g class="stone-el" data-stone="green" id="stone-svg-green">
+          <circle class="aura" cx="266" cy="278" r="24" fill="var(--green)" filter="url(#stoneglow)"/>
+          <circle class="core" cx="266" cy="278" r="11" fill="url(#grad-green)" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+        </g>
+        <g class="stone-el" data-stone="blue" id="stone-svg-blue">
+          <circle class="aura" cx="310" cy="300" r="24" fill="var(--blue)" filter="url(#stoneglow)"/>
+          <circle class="core" cx="310" cy="300" r="11" fill="url(#grad-blue)" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+        </g>
+      </svg>
+      <p class="hero-note">Click a stone, or scroll, to activate each section</p>
+    </div>
   </div>
 </section>
 
-<div class="hr"></div>
+<div class="trust-strip">
+  <span>MICROSOFT DYNAMICS 365</span><span>·</span><span>POWER PLATFORM</span><span>·</span><span>DATAVERSE</span><span>·</span><span>PL-900</span><span>·</span><span>VMWARE</span><span>·</span><span>POWERSHELL</span><span>·</span><span>POWERCLI</span><span>·</span><span>ITIL</span>
+</div>
+
+<!-- STONE 1 — RED — INFRASTRUCTURE (BROADCOM/VMWARE) -->
+<section class="section stone-sec" id="stone-red" data-color="red">
+  <div class="wrap">
+    <div class="stone-head">
+      <div class="stone-chip" style="border-color:var(--red);"><div class="dotcore" style="background:var(--red);"></div></div>
+      <div>
+        <div class="eyebrow">Stone 01 &nbsp;·&nbsp; Broadcom &nbsp;·&nbsp; Infrastructure Power</div>
+        <h2 class="sec-h">The <em>Infrastructure</em> Stone</h2>
+      </div>
+    </div>
+    <p class="sec-sub">Enterprise virtualization. Stability. Scale.</p>
+
+    <div class="two-col">
+      <div>
+        <div class="body-txt">
+          <p>Gaurav brings 5+ years of enterprise infrastructure experience, including VMware vSphere, ESXi, Windows Server and infrastructure operations — the operational discipline that now underpins his approach to Microsoft Business Applications.</p>
+          <p>He led VMware ESXi 8.0 upgrades across production clusters with zero critical downtime, managed the full ESXi host lifecycle (patch management, firmware upgrades, vulnerability remediation, capacity planning, backup and recovery, and disaster recovery readiness), and automated virtual machine provisioning using PowerShell and PowerCLI.</p>
+        </div>
+        <div class="metric-row">
+          <div class="metric"><div class="metric-val">5+</div><div class="metric-lbl">Years Enterprise IT</div></div>
+          <div class="metric"><div class="metric-val">99.9%</div><div class="metric-lbl">Availability Sustained</div></div>
+          <div class="metric"><div class="metric-val">40%</div><div class="metric-lbl">Less Manual Effort</div></div>
+        </div>
+      </div>
+      <div class="bring-panel">
+        <div class="bring-title">What I Bring</div>
+        <ul class="bring-list">
+          <li>VMware vSphere</li>
+          <li>ESXi</li>
+          <li>PowerShell</li>
+          <li>PowerCLI</li>
+          <li>Windows Server</li>
+          <li>ITIL</li>
+          <li>Incident Management</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STONE 2 — ORANGE — OBSERVABILITY (SOLARWINDS) -->
+<section class="section stone-sec" id="stone-orange" data-color="orange">
+  <div class="wrap">
+    <div class="stone-head">
+      <div class="stone-chip" style="border-color:var(--orange);"><div class="dotcore" style="background:var(--orange);"></div></div>
+      <div>
+        <div class="eyebrow">Stone 02 &nbsp;·&nbsp; SolarWinds &nbsp;·&nbsp; Monitoring &amp; Observability</div>
+        <h2 class="sec-h">The <em>Observability</em> Stone</h2>
+      </div>
+    </div>
+    <p class="sec-sub">See the signal. Find the problem. Restore the service.</p>
+
+    <div class="two-col">
+      <div>
+        <div class="body-txt">
+          <p>Enterprise infrastructure work involves constant monitoring, incident response, performance analysis and operational visibility. Gaurav resolved critical P1/P2/P3 incidents, performed root cause analysis, and drove ITIL-based Change, Incident and Problem Management using ServiceNow to improve operational efficiency.</p>
+          <p>Monitoring and operational visibility across enterprise infrastructure environments — from VMs to hosts to storage to network to applications — is core to how he keeps systems reliable.</p>
+        </div>
+        <div class="chiplist">
+          <span class="chip">SolarWinds</span><span class="chip">Splunk</span><span class="chip">ServiceNow</span><span class="chip">Capacity Planning</span><span class="chip">Performance Monitoring</span><span class="chip">Root Cause Analysis</span><span class="chip">Incident Management</span>
+        </div>
+      </div>
+      <div class="bring-panel">
+        <div class="bring-title">What I Bring</div>
+        <ul class="bring-list">
+          <li>SolarWinds</li>
+          <li>Splunk</li>
+          <li>ServiceNow</li>
+          <li>Root Cause Analysis</li>
+          <li>ITIL Incident Management</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="viz-panel">
+      <div class="viz-label">Operational Visibility — Illustrative Flow</div>
+      <div class="node-flow">
+        <div class="node">VMs</div><div class="node-arrow">&rarr;</div>
+        <div class="node">Hosts</div><div class="node-arrow">&rarr;</div>
+        <div class="node">Storage</div><div class="node-arrow">&rarr;</div>
+        <div class="node">Network</div><div class="node-arrow">&rarr;</div>
+        <div class="node alert" id="orangeAlertNode">Applications</div>
+      </div>
+      <p class="rca-note">Simulated alert traced to root cause &rarr; incident triaged &rarr; service restored</p>
+    </div>
+  </div>
+</section>
+
+<!-- STONE 3 — PURPLE — POWER APPS -->
+<section class="section stone-sec" id="stone-purple" data-color="purple">
+  <div class="wrap">
+    <div class="stone-head">
+      <div class="stone-chip" style="border-color:var(--purple);"><div class="dotcore" style="background:var(--purple);"></div></div>
+      <div>
+        <div class="eyebrow">Stone 03 &nbsp;·&nbsp; Microsoft Power Apps &nbsp;·&nbsp; Application Experience</div>
+        <h2 class="sec-h">The <em>Application</em> Stone</h2>
+      </div>
+    </div>
+    <p class="sec-sub">Turn business requirements into intuitive applications.</p>
+
+    <div class="two-col">
+      <div>
+        <div class="body-txt">
+          <p>Gaurav configured Dynamics 365 Sales forms, views and business rules based on client requirements — custom fields, optimized layouts, conditional field behavior, filtering, sorting and role-specific data visibility.</p>
+          <p>He developed JavaScript client-side customizations using OnLoad, OnChange and OnSave events for field validation, auto-population, dynamic control behavior, date validation and enhanced user experience.</p>
+        </div>
+        <div class="chiplist">
+          <span class="chip">Dynamics 365 Sales</span><span class="chip">Power Apps (Model-Driven)</span><span class="chip">Business Rules</span><span class="chip">Form &amp; View Customization</span><span class="chip">JavaScript</span><span class="chip">OnLoad / OnChange / OnSave</span>
+        </div>
+      </div>
+      <div class="bring-panel">
+        <div class="bring-title">What I Bring</div>
+        <ul class="bring-list">
+          <li>Dynamics 365 Sales</li>
+          <li>Power Apps (Model-Driven)</li>
+          <li>Business Rules &amp; Field Validation</li>
+          <li>JavaScript Client-Side Logic</li>
+          <li>Role-Specific Data Visibility</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="viz-panel">
+      <div class="sample-tag">Visual Demonstration — Illustrative Interface</div>
+      <div class="viz-label">Model-Driven App Preview</div>
+      <div class="app-demo">
+        <div class="app-top"><span>Customer Management</span><span>Account Form</span></div>
+        <div class="app-body">
+          <div class="app-field"><label>Account</label><div class="val">Contoso Manufacturing</div></div>
+          <div class="app-field"><label>Contact</label><div class="val">Priya Nair</div></div>
+          <div class="app-field js"><label>Opportunity Stage</label><div class="val" id="purpleField">Qualify</div></div>
+          <div class="app-field"><label>Status</label><div class="val" id="purpleStatus">Open</div></div>
+        </div>
+        <div class="app-status" id="purpleStatusLine"><span>&#9679;</span> Business rule evaluating field conditions…</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STONE 4 — YELLOW — POWER BI -->
+<section class="section stone-sec" id="stone-yellow" data-color="yellow">
+  <div class="wrap">
+    <div class="stone-head">
+      <div class="stone-chip" style="border-color:var(--yellow);"><div class="dotcore" style="background:var(--yellow);"></div></div>
+      <div>
+        <div class="eyebrow">Stone 04 &nbsp;·&nbsp; Power BI &nbsp;·&nbsp; Insights &amp; Decision Making</div>
+        <h2 class="sec-h">The <em>Insight</em> Stone</h2>
+      </div>
+    </div>
+    <p class="sec-sub">Turn operational data into decisions.</p>
+
+    <div class="body-txt" style="max-width:760px;">
+      <p>Power BI is technology Gaurav uses to extend the value of enterprise data and operational insights — turning Dataverse records and infrastructure telemetry into dashboards that decision-makers can act on.</p>
+    </div>
+
+    <div class="viz-panel">
+      <div class="sample-tag">Sample Data / Portfolio Demonstration</div>
+      <div class="viz-label">Illustrative Enterprise Dashboard</div>
+      <div class="dash-grid">
+        <div class="dash-card"><div class="dash-lbl">VM Utilization</div><div class="dash-val" data-count="78" data-suffix="%">0%</div><div class="bar-track"><div class="bar-fill" data-w="78"></div></div></div>
+        <div class="dash-card"><div class="dash-lbl">Availability</div><div class="dash-val" data-count="99.9" data-suffix="%">0%</div><div class="bar-track"><div class="bar-fill" data-w="99"></div></div></div>
+        <div class="dash-card"><div class="dash-lbl">Incident Trend (30d)</div><div class="dash-val" data-count="-22" data-suffix="%">0%</div><div class="bar-track"><div class="bar-fill" data-w="60"></div></div></div>
+        <div class="dash-card"><div class="dash-lbl">Automation Impact</div><div class="dash-val" data-count="40" data-suffix="%">0%</div><div class="bar-track"><div class="bar-fill" data-w="40"></div></div></div>
+        <div class="dash-card"><div class="dash-lbl">Deployment Volume</div><div class="dash-val" data-count="126" data-suffix="">0</div><div class="bar-track"><div class="bar-fill" data-w="70"></div></div></div>
+        <div class="dash-card"><div class="dash-lbl">Capacity Headroom</div><div class="dash-val" data-count="34" data-suffix="%">0%</div><div class="bar-track"><div class="bar-fill" data-w="34"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STONE 5 — GREEN — DATAVERSE -->
+<section class="section stone-sec" id="stone-green" data-color="green">
+  <div class="wrap">
+    <div class="stone-head">
+      <div class="stone-chip" style="border-color:var(--green);"><div class="dotcore" style="background:var(--green);"></div></div>
+      <div>
+        <div class="eyebrow">Stone 05 &nbsp;·&nbsp; Microsoft Dataverse &nbsp;·&nbsp; Data Foundation</div>
+        <h2 class="sec-h">The <em>Data</em> Stone</h2>
+      </div>
+    </div>
+    <p class="sec-sub">Where business data becomes structured, secure and actionable.</p>
+
+    <div class="two-col">
+      <div>
+        <div class="body-txt">
+          <p>Gaurav designed and configured Microsoft Dataverse tables, relationships, lookup columns and choice fields to support client-specific business processes and extend standard Dynamics 365 functionality.</p>
+          <p>He configured Security Roles and access permissions across Dynamics 365 and Dataverse to implement secure, role-based access to records, entities and business operations — and managed the full solution lifecycle across managed and unmanaged solutions.</p>
+        </div>
+        <div class="chiplist">
+          <span class="chip">Tables</span><span class="chip">Relationships</span><span class="chip">Lookups</span><span class="chip">Choices</span><span class="chip">Security Roles</span><span class="chip">Business Logic</span>
+        </div>
+      </div>
+      <div class="bring-panel">
+        <div class="bring-title">What I Bring</div>
+        <ul class="bring-list">
+          <li>Dataverse Table Design</li>
+          <li>Relationships &amp; Lookup Columns</li>
+          <li>Choice Fields</li>
+          <li>Role-Based Security</li>
+          <li>Solution Management</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="viz-panel">
+      <div class="viz-label">Dataverse Architecture — Illustrative</div>
+      <div class="dv-chain">
+        <div class="dv-node">Account</div><div class="dv-arrow">&darr;</div>
+        <div class="dv-node">Contact</div><div class="dv-arrow">&darr;</div>
+        <div class="dv-node">Opportunity</div><div class="dv-arrow">&darr;</div>
+        <div class="dv-node">Activity</div>
+        <div class="dv-shield">Secured by Role-Based Access &amp; Security Roles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STONE 6 — BLUE — POWER AUTOMATE -->
+<section class="section stone-sec" id="stone-blue" data-color="blue">
+  <div class="wrap">
+    <div class="stone-head">
+      <div class="stone-chip" style="border-color:var(--blue);"><div class="dotcore" style="background:var(--blue);"></div></div>
+      <div>
+        <div class="eyebrow">Stone 06 &nbsp;·&nbsp; Microsoft Power Automate &nbsp;·&nbsp; Automation</div>
+        <h2 class="sec-h">The <em>Automation</em> Stone</h2>
+      </div>
+    </div>
+    <p class="sec-sub">Automate the work. Accelerate the outcome.</p>
+
+    <div class="two-col">
+      <div>
+        <div class="body-txt">
+          <p>Gaurav built Power Automate cloud flows to automate approval workflows, record status updates, notifications, scheduled processes and related record creation — integrating with Microsoft Outlook and Teams to streamline business processes.</p>
+          <p>This mindset extends from his infrastructure background: automating virtual machine provisioning and operational workflows using PowerShell and PowerCLI, reducing manual effort by 40% and improving deployment consistency.</p>
+        </div>
+        <div class="chiplist">
+          <span class="chip">Power Automate</span><span class="chip">Approval Workflows</span><span class="chip">Outlook Integration</span><span class="chip">Teams Integration</span><span class="chip">PowerShell</span><span class="chip">PowerCLI</span>
+        </div>
+      </div>
+      <div class="bring-panel">
+        <div class="bring-title">What I Bring</div>
+        <ul class="bring-list">
+          <li>Power Automate Cloud Flows</li>
+          <li>Approval &amp; Notification Workflows</li>
+          <li>Outlook / Teams Integration</li>
+          <li>PowerShell &amp; PowerCLI Automation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="viz-panel">
+      <div class="viz-label">Automation Pipeline — Illustrative</div>
+      <div class="pipeline">
+        <div class="pnode">Trigger</div><div class="parrow">&rarr;</div>
+        <div class="pnode">Condition</div><div class="parrow">&rarr;</div>
+        <div class="pnode">Business Logic</div><div class="parrow">&rarr;</div>
+        <div class="pnode">Dataverse</div><div class="parrow">&rarr;</div>
+        <div class="pnode">Outlook / Teams</div><div class="parrow">&rarr;</div>
+        <div class="pnode">Notification</div><div class="parrow">&rarr;</div>
+        <div class="pnode" id="blueComplete">Completion</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALL SIX STONES MOMENT -->
+<section id="convergence" class="section">
+  <div class="wrap">
+    <div class="conv-stones">
+      <div class="conv-stone"><div class="conv-dot" style="background:var(--red);box-shadow:0 0 14px var(--red);"></div><div class="conv-name">Broadcom</div></div>
+      <div class="conv-stone"><div class="conv-dot" style="background:var(--orange);box-shadow:0 0 14px var(--orange);"></div><div class="conv-name">SolarWinds</div></div>
+      <div class="conv-stone"><div class="conv-dot" style="background:var(--purple);box-shadow:0 0 14px var(--purple);"></div><div class="conv-name">Power Apps</div></div>
+      <div class="conv-stone"><div class="conv-dot" style="background:var(--yellow);box-shadow:0 0 14px var(--yellow);"></div><div class="conv-name">Power BI</div></div>
+      <div class="conv-stone"><div class="conv-dot" style="background:var(--green);box-shadow:0 0 14px var(--green);"></div><div class="conv-name">Dataverse</div></div>
+      <div class="conv-stone"><div class="conv-dot" style="background:var(--blue);box-shadow:0 0 14px var(--blue);"></div><div class="conv-name">Power Automate</div></div>
+    </div>
+    <h2 class="conv-quote">"Power is nothing without purpose."</h2>
+    <p class="conv-sub">Technology is only valuable when it solves a business problem.</p>
+    <div class="conv-equation">
+      <span>DYNAMICS 365</span><span class="plus">+</span><span>POWER PLATFORM</span><span class="plus">+</span><span>AUTOMATION</span><span class="plus">+</span><span>ENTERPRISE INFRASTRUCTURE</span>
+      <span class="eq">=</span>
+      <span class="conv-name-final">GAURAV SINHA</span>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="section" id="case-study">
+  <div class="wrap">
+    <div class="eyebrow">Behind The Gauntlet</div>
+    <h2 class="sec-h">Real enterprise capabilities. <em>Real engineering discipline.</em></h2>
+    <p class="sec-sub">The resume-backed flow of how a Dynamics 365 requirement moves from intake to post-go-live support.</p>
+    <div class="flow-wrap">
+      <div class="flow-step">Business Requirement</div><div class="flow-arrow">&darr;</div>
+      <div class="flow-step">Dynamics 365 Sales — Forms, Views &amp; Business Rules</div><div class="flow-arrow">&darr;</div>
+      <div class="flow-step">Dataverse — Tables, Relationships &amp; Security Roles</div><div class="flow-arrow">&darr;</div>
+      <div class="flow-step">JavaScript — Client-Side Customization</div><div class="flow-arrow">&darr;</div>
+      <div class="flow-step">C# Plugins — Server-Side Business Logic</div><div class="flow-arrow">&darr;</div>
+      <div class="flow-step">Power Automate — Workflow &amp; Notification</div><div class="flow-arrow">&darr;</div>
+      <div class="flow-step">Solution Management — Import / Export / Migration</div><div class="flow-arrow">&darr;</div>
+      <div class="flow-step">UAT &amp; Defect Resolution</div><div class="flow-arrow">&darr;</div>
+      <div class="flow-step">Production Deployment</div><div class="flow-arrow">&darr;</div>
+      <div class="flow-step">Post-Go-Live Support</div>
+    </div>
+    <p class="body-txt" style="max-width:720px;margin:30px auto 0;text-align:center;">Gaurav collaborated with functional consultants and business stakeholders to translate requirements into technical solutions, supported UAT and defect resolution, and participated in production deployments and post-go-live support.</p>
+  </div>
+</section>
+
+<!-- TECH STACK CONSTELLATION -->
+<section class="section" id="tech-stack" style="border-top:1px solid var(--bdr);">
+  <div class="wrap">
+    <div class="eyebrow">My Tech Stack</div>
+    <h2 class="sec-h">An interactive <em>technology constellation</em></h2>
+    <p class="sec-sub">Click a technology to jump to the stone it powers.</p>
+    <div class="stack-grid">
+      <div class="stack-group">
+        <div class="stack-title">Microsoft Business Applications</div>
+        <div class="stack-tags">
+          <button data-jump="#stone-purple">Dynamics 365</button>
+          <button data-jump="#stone-purple">Power Apps</button>
+          <button data-jump="#stone-blue">Power Automate</button>
+          <button data-jump="#stone-green">Dataverse</button>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-title">Development</div>
+        <div class="stack-tags">
+          <button data-jump="#stone-purple">JavaScript</button>
+          <button data-jump="#stone-purple">C#</button>
+          <button data-jump="#stone-purple">Plugins</button>
+          <button data-jump="#stone-purple">Business Rules</button>
+          <button data-jump="#stone-purple">XRM Toolbox</button>
+          <button data-jump="#stone-purple">Plugin Registration Tool</button>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-title">Automation</div>
+        <div class="stack-tags">
+          <button data-jump="#stone-red">PowerShell</button>
+          <button data-jump="#stone-red">PowerCLI</button>
+          <button data-jump="#stone-blue">Workflow Automation</button>
+          <button data-jump="#stone-blue">AI-Assisted Development</button>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-title">Infrastructure</div>
+        <div class="stack-tags">
+          <button data-jump="#stone-red">VMware vSphere</button>
+          <button data-jump="#stone-red">VMware ESXi</button>
+          <button data-jump="#stone-red">vCenter</button>
+          <button data-jump="#stone-red">Windows Server</button>
+          <button data-jump="#stone-red">Active Directory</button>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-title">Operations</div>
+        <div class="stack-tags">
+          <button data-jump="#stone-orange">ServiceNow</button>
+          <button data-jump="#stone-orange">SolarWinds</button>
+          <button data-jump="#stone-orange">Splunk</button>
+          <button data-jump="#stone-orange">ITIL</button>
+          <button data-jump="#stone-orange">Capacity Planning</button>
+          <button data-jump="#stone-orange">Root Cause Analysis</button>
+          <button data-jump="#stone-red">Backup &amp; Recovery</button>
+          <button data-jump="#stone-red">Disaster Recovery</button>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-title">Analytics</div>
+        <div class="stack-tags">
+          <button data-jump="#stone-yellow">Power BI</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER JOURNEY -->
+<section class="section" id="journey">
+  <div class="wrap">
+    <div class="eyebrow">Career Journey</div>
+    <h2 class="sec-h">From <em>infrastructure</em> to enterprise applications</h2>
+    <div class="journey-track">
+      <div class="j-stop">
+        <div class="j-year">Jan 2021 – Sep 2022</div>
+        <div class="j-role">Analyst — Capgemini India</div>
+        <ul class="j-list">
+          <li>Provisioned &amp; deployed 100+ enterprise VMs</li>
+          <li>Reduced deployment time by 50%</li>
+          <li>Managed full VM lifecycle</li>
+          <li>Performance optimization</li>
+          <li>Incident resolution &amp; capacity planning</li>
+        </ul>
+      </div>
+      <div class="j-stop">
+        <div class="j-year">Oct 2022 – Aug 2026</div>
+        <div class="j-role">Senior Analyst — Capgemini India</div>
+        <ul class="j-list">
+          <li>VMware ESXi 8.0 upgrades, zero downtime</li>
+          <li>PowerShell / PowerCLI automation</li>
+          <li>Windows / Active Directory infrastructure</li>
+          <li>ESXi lifecycle management</li>
+          <li>P1/P2/P3 incident management</li>
+        </ul>
+      </div>
+      <div class="j-stop">
+        <div class="j-year">Within the same role</div>
+        <div class="j-role">Dynamics 365 &amp; Power Platform</div>
+        <ul class="j-list">
+          <li>Dynamics 365 Sales configuration</li>
+          <li>Dataverse tables &amp; security roles</li>
+          <li>JavaScript &amp; C# plugin development</li>
+          <li>Power Automate workflows</li>
+          <li>Solution deployment &amp; post-go-live support</li>
+        </ul>
+      </div>
+      <div class="j-stop">
+        <div class="j-year">Today</div>
+        <div class="j-role">Dynamics 365 &amp; Power Platform Professional</div>
+        <ul class="j-list">
+          <li>PL-900 Certified</li>
+          <li>Enterprise infrastructure mindset</li>
+          <li>Business-application delivery</li>
+          <li>Open to new opportunities</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="section" id="achievements" style="border-top:1px solid var(--bdr);">
+  <div class="wrap">
+    <div class="eyebrow">Achievements</div>
+    <h2 class="sec-h">Recognition earned <em>on the job</em></h2>
+    <div class="ach-grid">
+      <div class="ach-card">
+        <div class="ach-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg></div>
+        <div class="ach-name">GOAT Award</div>
+        <div class="ach-desc">Recognized for remediating critical infrastructure vulnerabilities across multiple remote sites through cross-functional collaboration.</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-ico"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <div class="ach-name">Employee of the Month</div>
+        <div class="ach-desc">Recognized for ESXi patching, BIOS and firmware upgrades with zero production downtime.</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-ico"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div class="ach-name">Certificate of Excellence</div>
+        <div class="ach-desc">Recognized for outstanding execution of VMware infrastructure operations and service delivery.</div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="ach-name">Client Appreciation</div>
+        <div class="ach-desc">Multiple client recognitions for successful MES IT downtime activities and infrastructure maintenance.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS VAULT -->
+<section class="section" id="certifications">
+  <div class="wrap">
+    <div class="eyebrow">Certification Vault</div>
+    <h2 class="sec-h">Continuous <em>learning</em></h2>
+    <div class="vault">
+      <div class="vault-main">
+        <div>
+          <div class="lbl">Microsoft Certified</div>
+          <div class="name">Power Platform Fundamentals</div>
+        </div>
+        <div class="vault-badge">PL-900</div>
+      </div>
+      <div class="vault-grid">
+        <div class="vault-item"><div class="cat">Professional Development</div><div class="desc">McKinsey Forward Program</div></div>
+        <div class="vault-item"><div class="cat">VMware &amp; Virtualization</div><div class="desc">Administration in vSphere 8; VMware Data Center Virtualization Foundations; VCP-DCV Foundation &amp; vSphere 8.x Architecture</div></div>
+        <div class="vault-item"><div class="cat">Project Management</div><div class="desc">Agile Software Development; Project Management (Google); Lean Six Sigma &amp; Lean Six Sigma White Belt</div></div>
+        <div class="vault-item"><div class="cat">Leadership</div><div class="desc">Leadership Skills — IIM Ahmedabad</div></div>
+        <div class="vault-item"><div class="cat">Generative AI</div><div class="desc">Introduction to Generative AI (Google); Complete Prompt Engineering for AI Bootcamp</div></div>
+        <div class="vault-item"><div class="cat">Sustainability</div><div class="desc">Introduction to Greenhouse Gas Accounting for IT (Cisco)</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT -->
-<section class="sec" id="about">
-  <div class="sec-max">
-    <div class="overline">Background</div>
-    <h2 class="sec-title">About <em>Me</em></h2>
-    <div class="about-grid">
-      <div>
-        <div class="about-body">
-          <p>Microsoft Dynamics 365 and Power Platform professional, Microsoft Certified: Power Platform Fundamentals (PL-900), with 1+ years of hands-on experience supporting Dynamics 365 Sales implementations, Power Platform solutions, Dataverse configuration, JavaScript customizations, Power Automate workflows and solution deployments.</p>
-          <p>Backed by 5+ years of overall enterprise IT experience with a strong foundation in VMware virtualization and administration, Windows infrastructure and PowerShell automation, I combine technical expertise with business-focused problem solving to deliver scalable, reliable and client-centric Microsoft solutions.</p>
-          <p>My career at Capgemini India has spanned both worlds — from managing enterprise virtualization infrastructure and driving ITIL-based incident resolution, to configuring Dynamics 365 forms, security roles, Dataverse tables and Power Automate flows for client-specific business processes. That combination lets me approach Microsoft Business Applications work with an infrastructure engineer's discipline around reliability, security and deployment rigor.</p>
-        </div>
-        <div class="about-nums">
-          <div class="astat"><span class="astat-n">1+</span><span class="astat-l">Years D365 &amp; Power Platform</span></div>
-          <div class="astat"><span class="astat-n">5+</span><span class="astat-l">Years Enterprise IT Experience</span></div>
-          <div class="astat"><span class="astat-n">99.9%</span><span class="astat-l">Infrastructure Availability</span></div>
-          <div class="astat"><span class="astat-n">40%</span><span class="astat-l">Manual Effort Reduced</span></div>
-        </div>
-      </div>
-      <div class="cert-stack">
-        <div class="crt">
-          <div class="crt-ico"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-          <div><div class="crt-name">Microsoft Certified: Power Platform Fundamentals (PL-900)</div><div class="crt-sub">Microsoft Business Applications</div></div>
-          <span class="pill pill-on">Active</span>
-        </div>
-        <div class="crt">
-          <div class="crt-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
-          <div><div class="crt-name">McKinsey Forward Program</div><div class="crt-sub">Structured problem-solving &amp; leadership</div></div>
-          <span class="pill pill-on">Active</span>
-        </div>
-        <div class="crt">
-          <div class="crt-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <div><div class="crt-name">Leadership Skills</div><div class="crt-sub">IIM Ahmedabad</div></div>
-          <span class="pill pill-on">Active</span>
-        </div>
-        <div class="crt">
-          <div class="crt-ico"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-          <div><div class="crt-name">VCP-DCV Foundation &amp; vSphere 8.x Architecture</div><div class="crt-sub">Coursera</div></div>
-          <span class="pill pill-on">Active</span>
-        </div>
-      </div>
+<section class="section" id="about" style="border-top:1px solid var(--bdr);">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow">About</div>
+      <h2 class="sec-h">Infrastructure discipline meets <em>business applications</em></h2>
+      <p class="body-txt">I started in enterprise infrastructure, where reliability, automation and operational discipline were non-negotiable. That foundation now shapes how I approach Microsoft Dynamics 365 and Power Platform — not just as application technologies, but as tools for solving real business problems.</p>
+      <p class="body-txt">I understand both the infrastructure beneath enterprise systems and the business applications running above them.</p>
+    </div>
+    <div class="about-stats">
+      <div class="astat"><div class="astat-n" style="color:var(--red);">5+ Years</div><div class="astat-l">Enterprise IT</div></div>
+      <div class="astat"><div class="astat-n" style="color:var(--purple);">1+ Year</div><div class="astat-l">Dynamics 365 / Power Platform</div></div>
+      <div class="astat"><div class="astat-n" style="color:var(--yellow);">PL-900</div><div class="astat-l">Certified</div></div>
+      <div class="astat"><div class="astat-n" style="color:var(--blue);">Automation</div><div class="astat-l">Mindset</div></div>
     </div>
   </div>
 </section>
-
-<div class="hr"></div>
-
-<!-- SKILLS -->
-<section class="sec alt" id="skills">
-  <div class="sec-max">
-    <div class="overline">Capabilities</div>
-    <h2 class="sec-title">Core <em>Competencies</em></h2>
-    <div class="skill-row">
-      <div class="sk">
-        <div class="sk-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-        <div class="sk-cat">Microsoft Business Applications</div>
-        <div class="tags">
-          <span class="tg">Dynamics 365</span><span class="tg">Microsoft Power Platform</span><span class="tg">Power Apps (Model-Driven)</span><span class="tg">Power Automate</span><span class="tg">Microsoft Dataverse</span>
-        </div>
-      </div>
-      <div class="sk">
-        <div class="sk-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-        <div class="sk-cat">Dynamics 365 Development</div>
-        <div class="tags">
-          <span class="tg">JavaScript</span><span class="tg">C# Plugins</span><span class="tg">Business Rules</span><span class="tg">Form &amp; View Customization</span><span class="tg">Security Roles</span><span class="tg">Solution Management</span><span class="tg">Plugin Registration Tool</span><span class="tg">XRM Toolbox</span>
-        </div>
-      </div>
-      <div class="sk">
-        <div class="sk-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="sk-cat">Automation &amp; Scripting</div>
-        <div class="tags">
-          <span class="tg">PowerShell</span><span class="tg">PowerCLI</span><span class="tg">AI-Assisted Development</span>
-        </div>
-      </div>
-    </div>
-    <div class="tools-strip">
-      <span class="t-lbl">Enterprise Technologies</span>
-      <span class="tool">VMware vSphere</span><span class="tool">VMware vCenter</span><span class="tool">ESXi</span><span class="tool">Dell OME</span><span class="tool">HP OneView</span><span class="tool">Windows Server Administration</span><span class="tool">Vendor Management</span><span class="tool">ServiceNow</span><span class="tool">Solarwinds</span><span class="tool">Splunk</span><span class="tool">ITIL</span>
-    </div>
-  </div>
-</section>
-
-<div class="hr"></div>
-
-<!-- EXPERIENCE -->
-<section class="sec" id="experience">
-  <div class="sec-max">
-    <div class="overline">Career History</div>
-    <h2 class="sec-title">Professional <em>Experience</em></h2>
-    <div class="xp-wrap">
-
-      <div class="xp">
-        <div class="xp-header">
-          <div class="xp-role">Senior Analyst</div>
-          <span class="xp-period">Oct 2022 – Aug 2026</span>
-        </div>
-        <div class="xp-co"><strong>Capgemini India</strong></div>
-
-        <div class="xp-sub">Microsoft Dynamics 365 &amp; Power Platform</div>
-        <ul class="xp-pts">
-          <li>Configured Dynamics 365 Sales forms, views and business rules based on client requirements, including custom fields, optimized layouts, conditional field behavior, filtering, sorting and role-specific data visibility.</li>
-          <li>Configured Security Roles and access permissions across Dynamics 365 and Dataverse to implement secure, role-based access to records, entities and business operations.</li>
-          <li>Designed and configured Microsoft Dataverse tables, relationships, lookup columns and choice fields to support client-specific business processes and extend standard Dynamics 365 functionality.</li>
-          <li>Developed JavaScript client-side customizations using OnLoad, OnChange and OnSave events for field validation, auto-population, dynamic control behavior, date validation and enhanced user experience.</li>
-          <li>Developed C# plugins for server-side business logic, including duplicate record validation, custom auto-number generation and automated record updates during Create and Update operations; registered and tested plugins using the Plugin Registration Tool.</li>
-          <li>Built Power Automate cloud flows to automate approval workflows, record status updates, notifications, scheduled processes and related record creation, integrating with Microsoft Outlook and Teams to streamline business processes.</li>
-          <li>Managed Dynamics 365 solution lifecycle and deployments using managed and unmanaged solutions, including solution configuration, import/export, environment migration, release activities and deployment support.</li>
-          <li>Collaborated with functional consultants and business stakeholders to translate business requirements into technical solutions, supported UAT and defect resolution and participated in production deployments and post-go-live support.</li>
-        </ul>
-
-        <div class="xp-sub">Enterprise Infrastructure &amp; Virtualization</div>
-        <ul class="xp-pts">
-          <li>Led VMware ESXi 8.0 upgrades across production clusters with zero critical downtime while managing VMware vSphere environments, Windows Server, Active Directory and enterprise virtualization infrastructure.</li>
-          <li>Automated virtual machine provisioning and operational workflows using PowerShell and PowerCLI, reducing manual effort by 40% and improving deployment consistency.</li>
-          <li>Managed ESXi host lifecycle operations, including patch management, firmware upgrades, vulnerability remediation, capacity planning, backup and recovery and disaster recovery readiness, sustaining 99.9% infrastructure availability.</li>
-          <li>Resolved critical P1/P2/P3 incidents, performed root cause analysis and drove ITIL-based Change, Incident and Problem Management using ServiceNow to improve operational efficiency.</li>
-        </ul>
-      </div>
-
-      <div class="xp">
-        <div class="xp-header">
-          <div class="xp-role">Analyst</div>
-          <span class="xp-period">Jan 2021 – Sep 2022</span>
-        </div>
-        <div class="xp-co"><strong>Capgemini India</strong></div>
-
-        <div class="xp-sub">Enterprise Infrastructure &amp; Virtualization</div>
-        <ul class="xp-pts">
-          <li>Provisioned and deployed 100+ enterprise virtual machines using standardized templates, reducing deployment time by 50% while ensuring configuration consistency.</li>
-          <li>Managed the complete virtual machine lifecycle, including provisioning, snapshots, backups, recovery, decommissioning and resource allocation across VMware environments.</li>
-          <li>Monitored and optimized VMware infrastructure performance, improving CPU, memory and storage utilization while maintaining platform stability and availability.</li>
-          <li>Resolved virtualization-related incidents involving provisioning, performance, resource contention and access issues, consistently meeting SLA targets through root cause analysis.</li>
-          <li>Collaborated with cross-functional teams to support production deployments, develop infrastructure utilization reports and drive capacity planning and continuous service improvements.</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="hr"></div>
-
-<!-- CERTIFICATIONS -->
-<section class="sec alt" id="certifications">
-  <div class="sec-max">
-    <div class="overline">Continuous Learning</div>
-    <h2 class="sec-title">Certifications &amp; <em>Training</em></h2>
-    <div class="pj-grid">
-      <div class="pj">
-        <div class="pj-type">Microsoft Business Applications</div>
-        <h3 class="pj-title">Power Platform Fundamentals (PL-900)</h3>
-        <div class="pj-org">Microsoft Certified</div>
-        <p class="pj-desc">Validated foundational knowledge of Microsoft Power Platform, including Power Apps, Power Automate, Power BI and Dataverse.</p>
-      </div>
-      <div class="pj">
-        <div class="pj-type">Professional Development</div>
-        <h3 class="pj-title">McKinsey Forward Program</h3>
-        <div class="pj-org">McKinsey &amp; Company</div>
-        <p class="pj-desc">Developed practical skills in structured problem-solving, communication, leadership, adaptability, resilience and digital productivity for the future of work.</p>
-      </div>
-      <div class="pj">
-        <div class="pj-type">VMware &amp; Virtualization</div>
-        <h3 class="pj-title">vSphere 8 Administration &amp; VCP-DCV Foundation</h3>
-        <div class="pj-org">Udemy &amp; Coursera</div>
-        <p class="pj-desc">Administration in vSphere 8 (Udemy); VMware Data Center Virtualization Foundations (Coursera); VCP-DCV Foundation &amp; vSphere 8.x Architecture (Coursera).</p>
-      </div>
-      <div class="pj">
-        <div class="pj-type">Project Management &amp; Methodologies</div>
-        <h3 class="pj-title">Agile, PM &amp; Lean Six Sigma</h3>
-        <div class="pj-org">Coursera, Google &amp; Simplilearn</div>
-        <p class="pj-desc">Agile Software Development (Coursera); Project Management (Google); Lean Six Sigma (Simplilearn); Lean Six Sigma White Belt (Coursera).</p>
-      </div>
-      <div class="pj">
-        <div class="pj-type">Leadership</div>
-        <h3 class="pj-title">Leadership Skills</h3>
-        <div class="pj-org">IIM Ahmedabad</div>
-        <p class="pj-desc">Built core leadership capabilities to guide cross-functional collaboration and stakeholder communication.</p>
-      </div>
-      <div class="pj">
-        <div class="pj-type">Generative AI</div>
-        <h3 class="pj-title">Prompt Engineering &amp; Generative AI</h3>
-        <div class="pj-org">Google &amp; Udemy</div>
-        <p class="pj-desc">Introduction to Generative AI (Google); Complete Prompt Engineering for AI Bootcamp (Udemy) — applied toward AI-assisted development practices.</p>
-      </div>
-      <div class="pj">
-        <div class="pj-type">Sustainability</div>
-        <h3 class="pj-title">Greenhouse Gas Accounting for IT</h3>
-        <div class="pj-org">Cisco</div>
-        <p class="pj-desc">Introduction to Greenhouse Gas Accounting for IT, covering sustainable practices within enterprise technology operations.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="hr"></div>
-
-<!-- AWARDS -->
-<section class="sec" id="awards">
-  <div class="sec-max">
-    <div class="overline">Recognition</div>
-    <h2 class="sec-title">Awards &amp; <em>Recognition</em></h2>
-    <div class="edu-grid">
-      <div class="edu">
-        <div class="edu-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg></div>
-        <div>
-          <div class="edu-deg">GOAT Award</div>
-          <div class="edu-sch">Recognized for remediating critical infrastructure vulnerabilities across multiple remote sites through cross-functional collaboration.</div>
-        </div>
-      </div>
-      <div class="edu">
-        <div class="edu-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg></div>
-        <div>
-          <div class="edu-deg">Employee of the Month</div>
-          <div class="edu-sch">Awarded for executing ESXi patching, BIOS and firmware upgrades with zero production downtime.</div>
-        </div>
-      </div>
-      <div class="edu">
-        <div class="edu-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-        <div>
-          <div class="edu-deg">Certificate of Excellence</div>
-          <div class="edu-sch">Recognized for outstanding execution of VMware infrastructure operations and service delivery.</div>
-        </div>
-      </div>
-      <div class="edu">
-        <div class="edu-icon"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <div>
-          <div class="edu-deg">Client Appreciation</div>
-          <div class="edu-sch">Received multiple client recognitions for successfully delivering MES IT downtime activities and infrastructure maintenance.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="hr"></div>
 
 <!-- CONTACT -->
-<section class="sec alt" id="contact">
-  <div class="sec-max">
-    <div class="ct-grid">
-      <div>
-        <div class="overline">Let's Connect</div>
-        <h2 class="ct-hl">Open to new<br><em>opportunities</em></h2>
-        <div class="ct-avail"><div class="avail-dot"></div>Available · Kolkata, India</div>
-        <p class="ct-sub">Whether you need a Dynamics 365 &amp; Power Platform specialist to configure, customize and deploy business solutions, or an engineer who brings enterprise infrastructure rigor to Microsoft Business Applications — let's start a conversation.</p>
-        <a href="mailto:sinhagaurav.101.gs@gmail.com" class="btn-a">Send a Message &rarr;</a>
-      </div>
-      <div class="ct-links">
-        <a class="ct-row" href="tel:+919163969172">
-          <div class="ct-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.58 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l1.8-1.8a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-          <div><span class="ct-lbl">Phone</span><span class="ct-val">+91 91639 69172</span></div>
-        </a>
-        <a class="ct-row" href="mailto:sinhagaurav.101.gs@gmail.com">
-          <div class="ct-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div><span class="ct-lbl">Email</span><span class="ct-val">sinhagaurav.101.gs@gmail.com</span></div>
-        </a>
-        <a class="ct-row" href="https://linkedin.com/in/gauravsinha133" target="_blank">
-          <div class="ct-ico"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
-          <div><span class="ct-lbl">LinkedIn</span><span class="ct-val">linkedin.com/in/gauravsinha133</span></div>
-        </a>
-        <a class="ct-row" href="#">
-          <div class="ct-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><span class="ct-lbl">Location</span><span class="ct-val">Kolkata, India</span></div>
-        </a>
-      </div>
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;">Ready When You Are</div>
+    <h2 class="ct-h">Ready to activate<br>the next stone?</h2>
+    <p class="ct-sub">Let's build something that solves a real business problem.</p>
+    <div class="ct-btns">
+      <a class="btn-main" href="https://linkedin.com/in/gauravsinha133" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn-ghost" href="mailto:sinhagaurav.101.gs@gmail.com">Email Me</a>
+      <a class="btn-ghost" href="https://drive.google.com/file/d/1SFGHsuYYOjY_jThkUHi7XSeDxaAKA3NH/view?usp=sharing" target="_blank" rel="noopener">View Resume</a>
+    </div>
+    <div class="ct-info">
+      <a href="tel:+919163969172">+91 91639 69172</a>
+      <a href="mailto:sinhagaurav.101.gs@gmail.com">sinhagaurav.101.gs@gmail.com</a>
+      <span>Kolkata, India</span>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="ft-l">Gaurav Sinha</div>
-  <div class="ft-c">&copy; 2026 Gaurav Sinha &nbsp;·&nbsp; All Rights Reserved</div>
-  <div class="ft-r">
+  <div>&copy; 2026 Gaurav Sinha</div>
+  <div>
     <a href="#home">Top</a>
-    <a href="#experience">Experience</a>
+    <a href="#journey">Experience</a>
     <a href="#contact">Contact</a>
   </div>
 </footer>
+
+<!-- RECRUITER VIEW OVERLAY -->
+<div class="rec-overlay" id="recOverlay">
+  <div class="rec-card">
+    <button class="rec-close" id="recClose" type="button">&times;</button>
+    <div class="rec-name">Gaurav Sinha</div>
+    <div class="rec-title">Dynamics 365 &amp; Power Platform Professional</div>
+    <div class="rec-badges">
+      <span class="pill">5+ Years Enterprise IT</span>
+      <span class="pill">1+ Year Dynamics 365 / Power Platform</span>
+      <span class="pill">PL-900 Certified</span>
+    </div>
+
+    <div class="rec-sec-title">Core Skills</div>
+    <div class="rec-skills">
+      <span>Dynamics 365</span><span>Power Apps</span><span>Power Automate</span><span>Dataverse</span>
+      <span>JavaScript</span><span>C# Plugins</span><span>PowerShell</span><span>PowerCLI</span><span>VMware</span>
+    </div>
+
+    <div class="rec-sec-title">Experience Highlights</div>
+    <ul class="rec-list">
+      <li>Dynamics 365 Sales implementation</li>
+      <li>Dataverse configuration</li>
+      <li>Power Automate workflows</li>
+      <li>JavaScript customization</li>
+      <li>C# plugin development</li>
+      <li>Solution deployment</li>
+      <li>VMware ESXi 8.0 upgrades</li>
+      <li>Infrastructure automation</li>
+    </ul>
+
+    <div class="rec-cta">
+      <a class="btn-main" href="https://drive.google.com/file/d/1SFGHsuYYOjY_jThkUHi7XSeDxaAKA3NH/view?usp=sharing" target="_blank" rel="noopener">View Resume</a>
+      <a class="btn-ghost" href="mailto:sinhagaurav.101.gs@gmail.com">Contact Gaurav</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var COLORS = {
+    red:{v:'#E50914', soft:'rgba(229,9,20,0.14)', glow:'rgba(229,9,20,0.16)'},
+    orange:{v:'#FF7A00', soft:'rgba(255,122,0,0.14)', glow:'rgba(255,122,0,0.16)'},
+    purple:{v:'#8B3DFF', soft:'rgba(139,61,255,0.14)', glow:'rgba(139,61,255,0.16)'},
+    yellow:{v:'#FFD400', soft:'rgba(255,212,0,0.14)', glow:'rgba(255,212,0,0.16)'},
+    green:{v:'#32CD32', soft:'rgba(50,205,50,0.14)', glow:'rgba(50,205,50,0.16)'},
+    blue:{v:'#2496FF', soft:'rgba(36,150,255,0.14)', glow:'rgba(36,150,255,0.16)'}
+  };
+  var order = ['red','orange','purple','yellow','green','blue'];
+  var root = document.documentElement;
+  var body = document.body;
+  var gGlow = document.getElementById('gGlow');
+  var visited = {};
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setAccent(color){
+    var c = COLORS[color] || COLORS.red;
+    root.style.setProperty('--accent', c.v);
+    root.style.setProperty('--accent-soft', c.soft);
+    if(gGlow) gGlow.style.background = 'radial-gradient(circle, '+c.glow+' 0%, transparent 68%)';
+    body.setAttribute('data-stone', color);
+  }
+
+  function setStoneState(color, state){
+    // state: 'current' | 'visited' | 'dim'
+    var svgStone = document.getElementById('stone-svg-'+color);
+    var railDot = document.querySelector('.stone-dot[data-c="'+color+'"]');
+    if(svgStone){
+      svgStone.classList.remove('active','visited');
+      if(state === 'current') svgStone.classList.add('active');
+      else if(state === 'visited') svgStone.classList.add('visited');
+    }
+    if(railDot){
+      railDot.classList.remove('on','visited');
+      if(state === 'current') railDot.classList.add('on');
+      else if(state === 'visited') railDot.classList.add('visited','on');
+    }
+  }
+
+  function activate(color, markVisited){
+    if(markVisited) visited[color] = true;
+    order.forEach(function(c){
+      if(c === color) setStoneState(c, 'current');
+      else if(visited[c]) setStoneState(c, 'visited');
+      else setStoneState(c, 'dim');
+    });
+    setAccent(color);
+  }
+
+  activate('red', true);
+
+  // Click stones in gauntlet
+  order.forEach(function(color){
+    var el = document.getElementById('stone-svg-'+color);
+    if(el){
+      el.addEventListener('click', function(){
+        var target = document.getElementById('stone-'+color);
+        if(target) target.scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block:'start'});
+      });
+    }
+    var dot = document.querySelector('.stone-dot[data-c="'+color+'"]');
+    if(dot){
+      dot.addEventListener('click', function(){
+        var t = document.querySelector(dot.getAttribute('data-target'));
+        if(t) t.scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block:'start'});
+      });
+    }
+  });
+
+  // Tech stack jump buttons
+  document.querySelectorAll('[data-jump]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var t = document.querySelector(btn.getAttribute('data-jump'));
+      if(t) t.scrollIntoView({behavior: reduced ? 'auto' : 'smooth', block:'start'});
+    });
+  });
+
+  // Scroll-based activation via IntersectionObserver
+  var sections = document.querySelectorAll('.stone-sec');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var color = entry.target.getAttribute('data-color');
+          activate(color, true);
+        }
+      });
+    }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+    sections.forEach(function(s){ io.observe(s); });
+  }
+
+  // Animated counters for dashboard (Power BI stone)
+  var counted = false;
+  function animateCounters(){
+    if(counted) return; counted = true;
+    document.querySelectorAll('.dash-val').forEach(function(el){
+      var target = parseFloat(el.getAttribute('data-count'));
+      var suffix = el.getAttribute('data-suffix') || '';
+      if(reduced){ el.textContent = target + suffix; return; }
+      var start = 0, dur = 1200, startTime = null;
+      function step(ts){
+        if(!startTime) startTime = ts;
+        var p = Math.min((ts - startTime) / dur, 1);
+        var val = (start + (target - start) * p);
+        el.textContent = (Number.isInteger(target) ? Math.round(val) : val.toFixed(1)) + suffix;
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+    document.querySelectorAll('.bar-fill').forEach(function(el){
+      el.style.width = el.getAttribute('data-w') + '%';
+    });
+  }
+  var yellowSec = document.getElementById('stone-yellow');
+  if(yellowSec && 'IntersectionObserver' in window){
+    var io2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting) animateCounters(); });
+    }, { threshold: 0.3 });
+    io2.observe(yellowSec);
+  }
+
+  // Recruiter view toggle
+  var recBtn = document.getElementById('recruiterBtn');
+  var recOverlay = document.getElementById('recOverlay');
+  var recClose = document.getElementById('recClose');
+  if(recBtn && recOverlay){
+    recBtn.addEventListener('click', function(){ recOverlay.classList.add('show'); });
+  }
+  if(recClose && recOverlay){
+    recClose.addEventListener('click', function(){ recOverlay.classList.remove('show'); });
+  }
+  if(recOverlay){
+    recOverlay.addEventListener('click', function(e){
+      if(e.target === recOverlay) recOverlay.classList.remove('show');
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
